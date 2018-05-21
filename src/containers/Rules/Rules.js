@@ -1,11 +1,20 @@
 import React, {Component} from 'react';
-import classes from './Rules.css';
+import { withStyles } from '@material-ui/core/styles';
 import RuleFilter from '../../components/Rules/RuleFilter/RuleFilter';
+import RuleTable from '../../components/Rules/RuleTable/RuleTable';
+import RuleTabs from '../../components/Rules/RuleTabs/RuleTabs';
 
 class Rules extends Component {
     render() {
+
+        const { classes } = this.props;
+
         return (
-            <RuleFilter/>
+            <div>
+                <RuleFilter/>
+                <RuleTable/>
+                <RuleTabs />
+            </div>    
         );
     }
 }

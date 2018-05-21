@@ -1,71 +1,178 @@
-import React, {Component} from 'react';
-import classes from './MainToolbar.css';
-import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
-import {blue500} from 'material-ui/styles/colors';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import MenuItem from 'material-ui/MenuItem';
-import RaisedButton from 'material-ui/RaisedButton';
-import FontIcon from 'material-ui/FontIcon';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Toolbar from "@material-ui/core/Toolbar";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import Icon from "@material-ui/core/Icon";
+import MenuItem from "@material-ui/core/MenuItem";
+
+const styles = theme => ({
+  root: {
+    boxSizing: "border-box"
+  },
+  toolbar: {
+    backgroundColor: theme.palette.primary.main
+  },
+  listItemText: {
+    color: "#fff"
+  },
+  leftIcon: {
+    marginRight: theme.spacing.unit
+  },
+  backendButton: {
+    // backgroundColor: theme.palette.secondary.light,
+    marginLeft: theme.spacing.unit * 3
+  },
+  reportButton: {
+    // backgroundColor: theme.palette.secondary.light,
+    marginLeft: theme.spacing.unit * 3
+  },
+  monitorButton: {
+    // backgroundColor: theme.palette.secondary.light,
+    marginLeft: theme.spacing.unit * 3
+  },
+  adminButton: {
+    // backgroundColor: theme.palette.secondary.light,
+    marginLeft: theme.spacing.unit * 3
+  }
+});
+
+const options = [
+  "Мониторинг и Уведомления",
+  "Мониторинг мошенничества",
+  "Эмиссия",
+  "Правила"
+];
 
 class MainToolbar extends Component {
+  state = {
+    value: 4,
+    anchorEl: null,
+    selectedIndex: 1
+  };
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: 4
-        }
-    }
+  backendClickHandler = () => {
+    console.log("Backend button pressed");
+  };
 
-    handleDropDown = (event, index, value) => this.setState({value: value});
+  reportClickHandler = () => {
+    console.log("Report button pressed");
+  };
 
-    render() {
+  monitorClickHandler = () => {
+    console.log("Monitor button pressed");
+  };
 
-        const styles = {
-            toolbarStyle: {
-                backgroundColor: blue500
-            }
-        }
+  adminClickHandler = () => {
+    console.log("Admin button pressed");
+  };
 
-        return (
-            <Toolbar style={styles.toolbarStyle}>
-                <ToolbarGroup>
-                    <DropDownMenu value={this.state.value} onChange={this.handleDropDown} className={classes.DropDownMenu}>
-                        <MenuItem value={1} primaryText="Мониторинг и Уведомления"/>
-                        <MenuItem value={2} primaryText="Мониторинг мошенничества"/>
-                        <MenuItem value={3} primaryText="Эмиссия"/>
-                        <MenuItem value={4} primaryText="Правила"/>
-                    </DropDownMenu>
-                </ToolbarGroup>
-                <ToolbarGroup>
-                    <RaisedButton
-                        label="Фронтальная система"
-                        labelPosition="right"
-                        icon={<FontIcon className="material-icons">computer</FontIcon>}
-                    />
-                    <RaisedButton
-                        label="Бэк-офисная система"
-                        labelPosition="right"
-                        icon={<FontIcon className="material-icons">storage</FontIcon>}
-                    />
-                    <RaisedButton
-                        label="Отчеты"
-                        labelPosition="right"
-                        icon={<FontIcon className="material-icons">folder</FontIcon>}
-                    />
-                    <RaisedButton
-                        label="Системный мониторинг"
-                        labelPosition="right"
-                        icon={<FontIcon className="material-icons">settings_system_daydream</FontIcon>}
-                    />
-                    <RaisedButton
-                        label="Администрирование"
-                        labelPosition="right"
-                        icon={<FontIcon className="material-icons">settings</FontIcon>}
-                    />
-                </ToolbarGroup>
-            </Toolbar>
-        );
-    }
+  handleClickListItem = event => {
+    this.setState({
+      anchorEl: event.currentTarget
+    });
+  };
+
+  handleMenuItemClick = (event, index) => {
+    this.setState({
+      selectedIndex: index,
+      anchorEl: null
+    });
+  };
+
+  handleClose = () => {
+    this.setState({
+      anchorEl: null
+    });
+  };
+
+  render() {
+    const { classes } = this.props;
+    const { anchorEl } = this.state;
+
+    return (
+      <Toolbar className={classes.toolbar}>
+        <div className={classes.root}>
+          <List component="nav" className={classes.list}>
+            <ListItem
+              button
+              aria-haspopup={"true"}
+              aria-controls={"lock-menu"}
+              aria-label={"Топкек"}
+              onClick={this.handleClickListItem}
+            >
+              <ListItemText
+                primary={"Фронтальная система"}
+                secondary={options[this.state.selectedIndex]}
+              />
+            </ListItem>
+          </List>
+          <Menu
+            id="front-menu"
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={this.handleClose}
+          >
+            {options.map((option, index) => (
+              <MenuItem
+                key={option}
+                selected={index === this.state.selectedIndex}
+                onClick={event => this.handleMenuItemClick(event, index)}
+              >
+                {option}
+              </MenuItem>
+            ))}
+          </Menu>
+        </div>
+        <div>
+          <Button
+            variant={"raised"}
+            color={"secondary"}
+            className={classes.backendButton}
+            onClick={this.backendClickHandler}
+          >
+            <Icon className={classes.leftIcon}>storage</Icon>
+            Бэк-офисная система
+          </Button>
+          <Button
+            variant={"raised"}
+            color={"secondary"}
+            className={classes.reportButton}
+            onClick={this.reportClickHandler}
+          >
+            <Icon className={classes.leftIcon}>folder</Icon>
+            Отчеты
+          </Button>
+          <Button
+            variant={"raised"}
+            color={"secondary"}
+            className={classes.monitorButton}
+            onClick={this.monitorClickHandler}
+          >
+            <Icon className={classes.leftIcon}>settings_system_daydream</Icon>
+            Системный мониторинг
+          </Button>
+          <Button
+            variant={"raised"}
+            color={"secondary"}
+            className={classes.adminButton}
+            onClick={this.adminClickHandler}
+          >
+            <Icon className={classes.leftIcon}>settings</Icon>
+            Администрирование
+          </Button>
+        </div>
+      </Toolbar>
+    );
+  }
 }
 
-export default MainToolbar;
+MainToolbar.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(MainToolbar);
