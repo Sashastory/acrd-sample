@@ -1,0 +1,1 @@
+export { showRuleDetais, fetchRules } from './rules';

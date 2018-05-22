@@ -16,6 +16,8 @@ import Checkbox from "@material-ui/core/Checkbox";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import { lighten } from "@material-ui/core/styles/colorManipulator";
+import { connect } from 'react-redux';
+import * as actions from '../../../store/actions/index';
 
 import classes from "./RuleTable.css";
 
@@ -60,43 +62,12 @@ const styles = theme => ({
   }
 });
 
-const columnData = [
-  {
-    id: 15,
-    group: 11,
-    signal: "NO",
-    riskValue: 34,
-    beginDate: "03.04.2018",
-    endDate: "27.04.2018",
-    type: "save precedent",
-    author: "alfa_iss",
-    description: "test"
-  },
-  {
-    id: 14,
-    group: 12,
-    signal: "NO",
-    riskValue: 35,
-    beginDate: "05.04.2018",
-    endDate: "28.04.2018",
-    type: "save_precendent",
-    authore: "alfa_iss",
-    description: "second test"
-  },
-  {
-    id: 22,
-    group: 5,
-    signal: "NO",
-    riskValue: 15,
-    beginDate: "08.04.2018",
-    endDate: "01.05.2018",
-    type: "save_precendent",
-    authore: "alfa_iss",
-    description: "third test"
-  }
-];
-
 class RuleTable extends Component {
+
+  componentDidMount() {
+    this.props.onFetchRules();
+  }
+  
   state = {
     selected: [1]
   };
@@ -123,6 +94,7 @@ class RuleTable extends Component {
 
   render() {
     const { classes } = this.props;
+    const { rules } = this.props;
 
     return (
       <Paper className={classes.root}>
@@ -141,7 +113,7 @@ class RuleTable extends Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {columnData.map(n => {
+            {rules.map(n => {
               return (
                 <TableRow key={n.id} className={classes.tableRow}>
                   <TableCell component="th" scope="row">
@@ -207,4 +179,17 @@ class RuleTable extends Component {
   }
 }
 
-export default withStyles(styles)(RuleTable);
+const mapStateToProps = state => {
+  return {
+    rules: state.rules,
+    loading: state.loading
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onFetchRules: () => dispatch(actions.fetchRules())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(RuleTable));
