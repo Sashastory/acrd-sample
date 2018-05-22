@@ -30,11 +30,6 @@ const theme = createMuiTheme({
         fontSize: "14px"
       }
     },
-    MuiInputLabel: {
-      root: {
-        color: "#fff"
-      },
-    },
   },
   palette: {
     primary: {
