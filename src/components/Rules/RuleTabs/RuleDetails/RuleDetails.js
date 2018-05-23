@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import { withStyles } from "@material-ui/core/styles";
+import { connect } from 'react-redux';
+import * as action from '../../../../store/actions/index';
 
 const styles = theme => ({
   root: {
@@ -16,29 +18,31 @@ const styles = theme => ({
 });
 
 class RuleDetails extends Component {
-  state = {
-    id: 15,
-    group: 11,
-    signal: "NO",
-    riskValue: 34,
-    beginDate: "03.04.2018",
-    endDate: "27.04.2018",
-    type: "save precedent",
-    author: "alfa_iss",
-    description: "test",
-    formula: "",
-    formulaU: "",
-    formulaP: ""
-  };
+  // state = {
+  //   id: 15,
+  //   group: 11,
+  //   signal: "NO",
+  //   riskValue: 34,
+  //   beginDate: "03.04.2018",
+  //   endDate: "27.04.2018",
+  //   type: "save precedent",
+  //   author: "alfa_iss",
+  //   description: "test",
+  //   formula: "",
+  //   formulaU: "",
+  //   formulaP: ""
+  // };
 
+  
   fieldChangeHandler = name => event => {
     this.setState({
       [name]: event.target.value
     });
   };
-
+  
   render() {
-
+    
+    const { rule } = this.props;
     const { classes } = this.props;
 
     return (
@@ -47,7 +51,7 @@ class RuleDetails extends Component {
           <TextField
             id="id-field"
             label="ID"
-            value={this.state.id}
+            value={rule.id}
             className={classes.field}
             margin="normal"
             onChange={this.fieldChangeHandler('id')}
@@ -55,7 +59,7 @@ class RuleDetails extends Component {
           <TextField 
             id="author-field"
             label="Автор"
-            value={this.state.author}
+            value={rule.author}
             className={classes.field}
             margin="normal"
             onChange={this.fieldChangeHandler('author')}
@@ -63,7 +67,7 @@ class RuleDetails extends Component {
           <TextField
             id="signal-field"
             label="Сигнал"
-            value={this.state.signal} 
+            value={rule.signal} 
             className={classes.field}
             margin="normal"
             onChange={this.fieldChangeHandler('signal')}
@@ -71,14 +75,14 @@ class RuleDetails extends Component {
           <TextField
             id="riskvalue-field"
             label="Значение риска"
-            value={this.state.riskValue}
+            value={rule.riskValue}
             className={classes.field}
             onChange={this.fieldChangeHandler('riskValue')}
            />
           <TextField
             id="begindate-field"
             label="Дата С"
-            value={this.state.beginDate}
+            value={rule.beginDate}
             className={classes.field} 
             margin="normal"
             onChange={this.fieldChangeHandler('beginDate')}
@@ -86,7 +90,7 @@ class RuleDetails extends Component {
           <TextField
             id="description-field"
             label="Описание"
-            value={this.state.description}
+            value={rule.description}
             className={classes.field} 
             margin="normal"
             onChange={this.fieldChangeHandler('description')}
@@ -96,7 +100,7 @@ class RuleDetails extends Component {
           <TextField
             id="group-field"
             label="Группа"
-            value={this.state.group} 
+            value={rule.group} 
             className={classes.field} 
             margin="normal"
             onChange={this.fieldChangeHandler('group')}
@@ -104,7 +108,7 @@ class RuleDetails extends Component {
           <TextField
             id="formula-field"
             label="Формула"
-            value={this.state.formula} 
+            value={rule.formula} 
             className={classes.field}
             margin="normal"
             onChange={this.fieldChangeHandler('formula')}
@@ -112,7 +116,7 @@ class RuleDetails extends Component {
           <TextField
             id="formulaU-field"
             label="Формула (U)"
-            value={this.state.formulaU} 
+            value={rule.formulaU} 
             className={classes.field} 
             margin="normal"
             onChange={this.fieldChangeHandler('formulaU')}
@@ -120,7 +124,7 @@ class RuleDetails extends Component {
           <TextField
             id="formulaP-field"
             label="Формула (P)"
-            value={this.state.formulaP} 
+            value={rule.formulaP} 
             className={classes.field} 
             margin="normal"
             onChange={this.fieldChangeHandler('formulaP')}
@@ -128,7 +132,7 @@ class RuleDetails extends Component {
           <TextField
             id="endDate-field"
             label="Дата По"
-            value={this.state.endDate} 
+            value={rule.endDate} 
             className={classes.field} 
             margin="normal"
             onChange={this.fieldChangeHandler('endDate')}
@@ -139,4 +143,10 @@ class RuleDetails extends Component {
   }
 }
 
-export default withStyles(styles)(RuleDetails);
+const mapStateToProps = state => {
+  return {
+    rule: state.rule
+  }
+}
+
+export default connect(mapStateToProps)(withStyles(styles)(RuleDetails));

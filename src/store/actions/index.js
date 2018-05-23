@@ -1,1 +1,1 @@
-export { showRuleDetais, fetchRules } from './rules';
+export { showRuleDetais, fetchRules, fetchColumnData, changeSelectedAmount } from './rules';

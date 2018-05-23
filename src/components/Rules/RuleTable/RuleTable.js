@@ -16,8 +16,10 @@ import Checkbox from "@material-ui/core/Checkbox";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import { lighten } from "@material-ui/core/styles/colorManipulator";
-import { connect } from 'react-redux';
-import * as actions from '../../../store/actions/index';
+import { connect } from "react-redux";
+import * as actions from "../../../store/actions/index";
+import RuleTableHead from "../RuleTable/RuleTableHead/RuleTableHead";
+import RuleTableToolbar from "../RuleTable/RuleTableToolbar/RuleTableToolbar";
 
 import classes from "./RuleTable.css";
 
@@ -41,38 +43,34 @@ const styles = theme => ({
     marginBottom: "12px"
   },
   ruleSelectButton: {
-    // backgroundColor: theme.palette.primary.main,
     marginRight: theme.spacing.unit * 2
   },
   addButton: {
-    // backgroundColor: theme.palette.primary.main,
     marginRight: theme.spacing.unit * 2
   },
   editButton: {
-    // backgroundColor: theme.palette.primary.main,
     marginRight: theme.spacing.unit * 2
   },
   deleteButton: {
-    // backgroundColor: theme.palette.primary.main,
     marginRight: theme.spacing.unit * 2
   },
   hpanButton: {
-    // backgroundColor: theme.palette.primary.main,
     marginRight: theme.spacing.unit * 2
   }
 });
 
 class RuleTable extends Component {
-
   componentDidMount() {
     this.props.onFetchRules();
   }
-  
+
   state = {
-    selected: [1]
+    selected: [],
+    page: 0,
+    rowsPerPage: 5
   };
 
-  ruleSelectClickHandler = () => {
+  ruleSelectClickHandler = rule => {
     console.log("Rule select button pressed");
   };
 
@@ -94,11 +92,55 @@ class RuleTable extends Component {
 
   render() {
     const { classes } = this.props;
-    const { rules } = this.props;
+    const { rules, order, orderBy, rowsPerPage, page } = this.props;
+    const emptyRows =
+      rowsPerPage - Math.min(rowsPerPage, rules.length - page * rowsPerPage);
 
     return (
       <Paper className={classes.root}>
-        <Table className={classes.table}>
+        <RuleTableToolbar />
+        <div>
+          <Table>
+            <RuleTableHead />
+            <TableBody>
+              {rules
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map(rule => {
+                  const isSelected = false;
+                  return (
+                    <TableRow>
+                      <TableCell>
+                        <Checkbox checked={isSelected} />
+                      </TableCell>
+                      <TableCell component="th" scope="row">
+                        {rule.id}
+                      </TableCell>
+                      <TableCell>{rule.group}</TableCell>
+                      <TableCell>{rule.signal}</TableCell>
+                      <TableCell>{rule.riskValue}</TableCell>
+                      <TableCell>{rule.beginDate}</TableCell>
+                      <TableCell>{rule.endDate}</TableCell>
+                      <TableCell>{rule.type}</TableCell>
+                      <TableCell>{rule.author}</TableCell>
+                      <TableCell>{rule.description}</TableCell>
+                    </TableRow>
+                  );
+                })}
+              {emptyRows > 0 && (
+                <TableRow style={{ height: 49 * emptyRows }}>
+                  <TableCell colSpan={6} />
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </div>
+        <TablePagination
+          component="div"
+          count={rules.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+        />
+        {/* <Table className={classes.table}>
           <TableHead className={classes.tableHead}>
             <TableRow>
               <TableCell>ID</TableCell>
@@ -113,25 +155,28 @@ class RuleTable extends Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rules.map(n => {
+            {rules.map(rule => {
               return (
-                <TableRow key={n.id} className={classes.tableRow}>
+                <TableRow
+                  key={rule.id}
+                  className={classes.tableRow}
+                >
                   <TableCell component="th" scope="row">
-                    {n.id}
+                    {rule.id}
                   </TableCell>
-                  <TableCell>{n.group}</TableCell>
-                  <TableCell>{n.signal}</TableCell>
-                  <TableCell>{n.riskValue}</TableCell>
-                  <TableCell>{n.beginDate}</TableCell>
-                  <TableCell>{n.endDate}</TableCell>
-                  <TableCell>{n.type}</TableCell>
-                  <TableCell>{n.author}</TableCell>
-                  <TableCell>{n.description}</TableCell>
+                  <TableCell>{rule.group}</TableCell>
+                  <TableCell>{rule.signal}</TableCell>
+                  <TableCell>{rule.riskValue}</TableCell>
+                  <TableCell>{rule.beginDate}</TableCell>
+                  <TableCell>{rule.endDate}</TableCell>
+                  <TableCell>{rule.type}</TableCell>
+                  <TableCell>{rule.author}</TableCell>
+                  <TableCell>{rule.description}</TableCell>
                 </TableRow>
               );
             })}
           </TableBody>
-        </Table>
+        </Table> */}
         <div className={classes.ruleButtons}>
           <Button
             variant={"raised"}
@@ -182,14 +227,21 @@ class RuleTable extends Component {
 const mapStateToProps = state => {
   return {
     rules: state.rules,
+    order: state.order,
+    orderBy: state.orderBy,
+    rowsPerPage: state.rowsPerPage,
+    page: state.page,
     loading: state.loading
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchRules: () => dispatch(actions.fetchRules())
-  }
-}
+    onFetchRules: () => dispatch(actions.fetchRules()),
+    onShowRuleDetails: rule => dispatch(actions.showRuleDetais(rule))
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(RuleTable));
+export default connect(mapStateToProps, mapDispatchToProps)(
+  withStyles(styles)(RuleTable)
+);
