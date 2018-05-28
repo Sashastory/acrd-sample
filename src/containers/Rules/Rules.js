@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import RuleFilter from '../../components/Rules/RuleFilter/RuleFilter';
 import RuleTable from '../../components/Rules/RuleTable/RuleTable';
 import RuleTabs from '../../components/Rules/RuleTabs/RuleTabs';
+import EnhancedTable from '../../components/MaterialTestComponent/EnhancedTable';
 
 class Rules extends Component {
     render() {
@@ -14,6 +15,7 @@ class Rules extends Component {
                 <RuleFilter/>
                 <RuleTable/>
                 <RuleTabs />
+                {/* <EnhancedTable /> */}
             </div>    
         );
     }

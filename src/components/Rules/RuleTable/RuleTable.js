@@ -26,37 +26,41 @@ import classes from "./RuleTable.css";
 const styles = theme => ({
   root: {
     width: "100%",
-    overflowX: "auto",
     marginTop: theme.spacing.unit * 3
   },
-  table: {},
-  tableHead: {
-    backgroundColor: theme.palette.primary.dark
+  table: {
+    minWidth: 1020
   },
-  tableRow: {
-    backgroundColor: theme.palette.secondary.light
-  },
-  ruleButtons: {
-    marginLeft: "24px",
-    marginRight: "24px",
-    marginTop: "12px",
-    marginBottom: "12px"
-  },
-  ruleSelectButton: {
-    marginRight: theme.spacing.unit * 2
-  },
-  addButton: {
-    marginRight: theme.spacing.unit * 2
-  },
-  editButton: {
-    marginRight: theme.spacing.unit * 2
-  },
-  deleteButton: {
-    marginRight: theme.spacing.unit * 2
-  },
-  hpanButton: {
-    marginRight: theme.spacing.unit * 2
+  tableWrapper: {
+    overflowX: "auto"
   }
+  // tableHead: {
+  //   backgroundColor: theme.palette.primary.dark
+  // },
+  // tableRow: {
+  //   backgroundColor: theme.palette.secondary.light
+  // },
+  // ruleButtons: {
+  //   marginLeft: "24px",
+  //   marginRight: "24px",
+  //   marginTop: "12px",
+  //   marginBottom: "12px"
+  // },
+  // ruleSelectButton: {
+  //   marginRight: theme.spacing.unit * 2
+  // },
+  // addButton: {
+  //   marginRight: theme.spacing.unit * 2
+  // },
+  // editButton: {
+  //   marginRight: theme.spacing.unit * 2
+  // },
+  // deleteButton: {
+  //   marginRight: theme.spacing.unit * 2
+  // },
+  // hpanButton: {
+  //   marginRight: theme.spacing.unit * 2
+  // }
 });
 
 class RuleTable extends Component {
@@ -90,29 +94,50 @@ class RuleTable extends Component {
     console.log("HPAN button pressed");
   };
 
+  pageChangeHandler = (event, page) => {
+    this.setState({ page });
+  };
+
+  rowsPerPageChangeHandler = event => {
+    this.setState({
+      rowsPerPage: event.target.value
+    });
+  };
+
+  isSelected = id => this.props.selected.indexOf(id) !== -1;
+
   render() {
     const { classes } = this.props;
-    const { rules, order, orderBy, rowsPerPage, page } = this.props;
+    const { rules, order, orderBy, selected } = this.props;
+    const { page, rowsPerPage } = this.state;
     const emptyRows =
       rowsPerPage - Math.min(rowsPerPage, rules.length - page * rowsPerPage);
 
     return (
       <Paper className={classes.root}>
         <RuleTableToolbar />
-        <div>
-          <Table>
+        <div className={classes.tableWrapper}>
+          <Table className={classes.table}>
             <RuleTableHead />
             <TableBody>
               {rules
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map(rule => {
-                  const isSelected = false;
+                  const isSelected = this.isSelected(rule.id);
                   return (
-                    <TableRow>
-                      <TableCell>
+                    <TableRow
+                      hover
+                      onClick={() => this.props.onChangeSelectedAmount(rule.id)}
+                      role="checkbox"
+                      aria-checked={isSelected}
+                      tabIndex={-1}
+                      key={rule.id}
+                      selected={isSelected}
+                    >
+                      <TableCell padding="checkbox">
                         <Checkbox checked={isSelected} />
                       </TableCell>
-                      <TableCell component="th" scope="row">
+                      <TableCell component="th" scope="row" padding="none">
                         {rule.id}
                       </TableCell>
                       <TableCell>{rule.group}</TableCell>
@@ -128,7 +153,7 @@ class RuleTable extends Component {
                 })}
               {emptyRows > 0 && (
                 <TableRow style={{ height: 49 * emptyRows }}>
-                  <TableCell colSpan={6} />
+                  <TableCell colSpan={10} />
                 </TableRow>
               )}
             </TableBody>
@@ -139,86 +164,15 @@ class RuleTable extends Component {
           count={rules.length}
           rowsPerPage={rowsPerPage}
           page={page}
+          backIconButtonProps={{
+            "aria-label": "Предыдущая страница"
+          }}
+          nextIconButtonProps={{
+            "aria-label": "Следующая страница"
+          }}
+          onChangePage={this.pageChangeHandler}
+          onChangeRowsPerPage={this.rowsPerPageChangeHandler}
         />
-        {/* <Table className={classes.table}>
-          <TableHead className={classes.tableHead}>
-            <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>Группа</TableCell>
-              <TableCell>Сигнал</TableCell>
-              <TableCell>Значение риска</TableCell>
-              <TableCell>Дата С</TableCell>
-              <TableCell>Дата По</TableCell>
-              <TableCell>Тип</TableCell>
-              <TableCell>Автор</TableCell>
-              <TableCell>Описание</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rules.map(rule => {
-              return (
-                <TableRow
-                  key={rule.id}
-                  className={classes.tableRow}
-                >
-                  <TableCell component="th" scope="row">
-                    {rule.id}
-                  </TableCell>
-                  <TableCell>{rule.group}</TableCell>
-                  <TableCell>{rule.signal}</TableCell>
-                  <TableCell>{rule.riskValue}</TableCell>
-                  <TableCell>{rule.beginDate}</TableCell>
-                  <TableCell>{rule.endDate}</TableCell>
-                  <TableCell>{rule.type}</TableCell>
-                  <TableCell>{rule.author}</TableCell>
-                  <TableCell>{rule.description}</TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table> */}
-        <div className={classes.ruleButtons}>
-          <Button
-            variant={"raised"}
-            color={"primary"}
-            className={classes.ruleSelectButton}
-            onClick={this.ruleSelectClickHandler}
-          >
-            Выбрать правила
-          </Button>
-          <Button
-            variant={"raised"}
-            color={"primary"}
-            className={classes.addButton}
-            onClick={this.addClickHandler}
-          >
-            Добавить
-          </Button>
-          <Button
-            variant={"raised"}
-            color={"primary"}
-            className={classes.editButton}
-            onClick={this.editClickHandler}
-          >
-            Изменить
-          </Button>
-          <Button
-            variant={"raised"}
-            color={"primary"}
-            className={classes.deleteButton}
-            onClick={this.deleteClickHandler}
-          >
-            Удалить
-          </Button>
-          <Button
-            variant={"raised"}
-            color={"primary"}
-            className={classes.hpanButton}
-            onClick={this.hpanClickHandler}
-          >
-            HPAN
-          </Button>
-        </div>
       </Paper>
     );
   }
@@ -228,9 +182,8 @@ const mapStateToProps = state => {
   return {
     rules: state.rules,
     order: state.order,
+    selected: state.selected,
     orderBy: state.orderBy,
-    rowsPerPage: state.rowsPerPage,
-    page: state.page,
     loading: state.loading
   };
 };
@@ -238,7 +191,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onFetchRules: () => dispatch(actions.fetchRules()),
-    onShowRuleDetails: rule => dispatch(actions.showRuleDetais(rule))
+    onShowRuleDetails: rule => dispatch(actions.showRuleDetais(rule)),
+    onChangeSelectedAmount: selectedId =>
+      dispatch(actions.changeSelectedAmount(selectedId))
   };
 };
 

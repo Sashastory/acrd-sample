@@ -16,20 +16,20 @@ const theme = createMuiTheme({
         color: "#fff"
       }
     },
-    MuiTableCell: {
-      root: {
-        marginLeft: "24px",
-        paddingLeft: "24px"
-      },
-      head: {
-        color: "#fff",
-        fontSize: "16px"
-      },
-      body: {
-        color: "#fff",
-        fontSize: "14px"
-      }
-    },
+    // MuiTableCell: {
+    //   root: {
+    //     marginLeft: "24px",
+    //     paddingLeft: "24px"
+    //   },
+    //   head: {
+    //     color: "#fff",
+    //     fontSize: "16px"
+    //   },
+    //   body: {
+    //     color: "#fff",
+    //     fontSize: "14px"
+    //   }
+    // },
   },
   palette: {
     primary: {
