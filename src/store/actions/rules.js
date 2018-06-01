@@ -65,23 +65,23 @@ export const showRuleDetails = rule => {
   };
 };
 
-export const changeSelectedAmount = selectedId => {
+export const changeSelectedRuleAmount = selectedId => {
   return {
-    type: actionTypes.CHANGE_SELECTED_AMOUNT,
+    type: actionTypes.CHANGE_SELECTED_RULE_AMOUNT,
     selectedId: selectedId
   };
 };
 
-export const sortRuleTable = (property) => {
+export const sortRuleTable = property => {
   return {
     type: actionTypes.SORT_RULE_TABLE,
     property: property
   };
 };
 
-export const selectAllRules = (checked) => {
+export const selectAllRules = checked => {
   return {
     type: actionTypes.SELECT_ALL_RULES,
     checked: checked
-  }
+  };
 };

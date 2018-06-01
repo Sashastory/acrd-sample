@@ -126,7 +126,7 @@ const showRuleDetails = (state, action) => {
   return updateObject(state, { rule: action.rule });
 };
 
-const changeSelectedAmount = (state, action) => {
+const changeSelectedRuleAmount = (state, action) => {
   const selectedIndex = state.selected.indexOf(action.selectedId);
   let newSelected = [];
 
@@ -197,8 +197,8 @@ const reducer = (state = initialState, action) => {
     case actionTypes.SHOW_RULE_DETAILS:
       return showRuleDetails(state, action);
 
-    case actionTypes.CHANGE_SELECTED_AMOUNT:
-      return changeSelectedAmount(state, action);
+    case actionTypes.CHANGE_SELECTED_RULE_AMOUNT:
+      return changeSelectedRuleAmount(state, action);
 
     case actionTypes.SORT_RULE_TABLE:
       return sortRuleTable(state, action);

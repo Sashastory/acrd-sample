@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import Layout from "./hoc/Layout/Layout";
 import Rules from "./containers/Rules/Rules";
+import Main from './containers/Main/Main';
+import Transactions from './containers/Transactions/Transactions';
 import "./App.css";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
@@ -33,15 +35,15 @@ const theme = createMuiTheme({
   },
   palette: {
     primary: {
-      light: "#52c7b8",
-      main: "#009688",
-      dark: "#00675b",
+      light: "#9162e4",
+      main: "#5e35b1",
+      dark: "#280680",
       contrastText: "#fff"
     },
     secondary: {
-      light: "#ff8a50",
-      main: "#ff5722",
-      dark: "#c41c00",
+      light: "#fff350",
+      main: "#ffc107",
+      dark: "#c79100",
       contrastText: "#fff"
     }
   }
@@ -56,7 +58,9 @@ class App extends Component {
           <div>
             <Layout>
               <Switch>
-                <Route path="/" component={Rules} />
+                <Route path="/transactions" component={Transactions} />
+                <Route path="/rules" component={Rules} />
+                <Route path="/" component={Main} />
               </Switch>
             </Layout>
           </div>

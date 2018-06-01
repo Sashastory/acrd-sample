@@ -9,26 +9,28 @@ import FilterListIcon from "@material-ui/icons/FilterList";
 import { Tooltip } from "@material-ui/core";
 import { connect } from "react-redux";
 
-const toolbarStyles = theme => ({
+const styles = theme => ({
   root: {
-    paddingRight: theme.spacing.unit
+    paddingRight: theme.spacing.unit,
+    backgroundColor: theme.palette.primary.light
   },
   highlight: {
     color: theme.palette.text.main,
     backgroundColor: theme.palette.secondary.main
   },
-  spacer: {
-    flex: "1 1 100%"
-  },
   actions: {
     color: theme.palette.text.secondary
   },
+  spacer: {
+    flex: "1 1 100%"
+  },
+  actions: {},
   title: {
     flex: "0 0 auto"
   }
 });
 
-class RuleTableToolbar extends Component {
+class TransactionTableToolbar extends Component {
   render() {
     const { numSelected, classes } = this.props;
 
@@ -44,7 +46,7 @@ class RuleTableToolbar extends Component {
               {numSelected} выбрано
             </Typography>
           ) : (
-            <Typography variant="title" id="tableTitle">
+            <Typography variant="title" id="tableTitle" color={"inherit"}>
               Правила
             </Typography>
           )}
@@ -72,10 +74,10 @@ class RuleTableToolbar extends Component {
 
 const mapStateToProps = state => {
   return {
-    numSelected: state.rulesR.selected.length
+    numSelected: state.transactionsR.selected.length
   };
 };
 
 export default connect(mapStateToProps)(
-  withStyles(toolbarStyles)(RuleTableToolbar)
+  withStyles(styles)(TransactionTableToolbar)
 );

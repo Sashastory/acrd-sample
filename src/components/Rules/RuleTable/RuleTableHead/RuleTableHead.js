@@ -15,14 +15,11 @@ class RuleTableHead extends Component {
   }
 
   createSortHandler = property => event => {
-    // this.props.sortRuleTable(event, property);
-    console.log("Sorting");
     this.props.onSortRuleTable(property);
   };
 
-  onSelectAllClick = (event, checked) => {
-    //dispatch action
-    this.props.onSelectAllClick(checked);
+  onSelectAllRules = (event, checked) => {
+    this.props.onSelectAllRules(checked);
   };
 
   render() {
@@ -35,7 +32,7 @@ class RuleTableHead extends Component {
             <Checkbox
               indeterminate={numSelected > 0 && numSelected < rowCount}
               checked={numSelected === rowCount}
-              onChange={this.onSelectAllClick}
+              onChange={this.onSelectAllRules}
             />
           </TableCell>
           {columnData.map(column => {
@@ -70,18 +67,18 @@ class RuleTableHead extends Component {
 
 const mapStateToProps = state => {
   return {
-    order: state.order,
-    orderBy: state.orderBy,
-    columnData: state.columnData,
-    numSelected: state.selected.length,
-    rowCount: state.rowCount
+    order: state.rulesR.order,
+    orderBy: state.rulesR.orderBy,
+    columnData: state.rulesR.columnData,
+    numSelected: state.rulesR.selected.length,
+    rowCount: state.rulesR.rowCount
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     onFetchColumnData: () => dispatch(actions.fetchColumnData()),
-    onSelectAllClick: checked => dispatch(actions.selectAllRules(checked)),
+    onSelectAllRules: checked => dispatch(actions.selectAllRules(checked)),
     onSortRuleTable: property => dispatch(actions.sortRuleTable(property))
   };
 };

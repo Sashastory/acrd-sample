@@ -7,7 +7,7 @@ import * as action from '../../../../store/actions/index';
 const styles = theme => ({
   root: {
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   container: {
     display: "flex",
@@ -145,7 +145,7 @@ class RuleDetails extends Component {
 
 const mapStateToProps = state => {
   return {
-    rule: state.rule
+    rule: state.rulesR.rule
   }
 }
 

@@ -5,18 +5,22 @@ import AppToolbar from "../../components/Navigation/AppToolbar/AppToolbar";
 import MainToolbar from "../../components/Navigation/MainToolbar/MainToolbar";
 import { withTheme } from "@material-ui/core/styles";
 
+const styles = theme => ({
+  root: {
+  }
+})
+
 class Layout extends Component {
   render() {
     const { classes } = this.props;
 
     return (
-      <div>
+      <div className={classes.root}>
         <AppToolbar />
-        <MainToolbar />
         <main>{this.props.children}</main>
       </div>
     );
   }
 }
 
-export default Layout;
+export default withStyles(styles)(Layout);

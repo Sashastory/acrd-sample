@@ -9,15 +9,15 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 
 const styles = theme => ({
   root: {
-    backgroundColor: theme.palette.primary.light
+    // backgroundColor: theme.palette.primary.light
   },
   searchFields: {
-    padding: "24px"
+    marginLeft: theme.spacing.unit * 3 
   },
-  filterButtons: {
-    paddingLeft: "24px",
-    paddingRight: "24px",
-    paddingBottom: "24px"
+  ruleFilterButtons: {
+    marginLeft: theme.spacing.unit * 3,
+    marginTop: theme.spacing.unit * 2,
+    marginBottom: theme.spacing.unit * 2
   },
   ruleIdField: {
     marginRight: theme.spacing.unit * 2
@@ -32,7 +32,7 @@ const styles = theme => ({
     marginRight: theme.spacing.unit * 2
   },
   iconStyle: {
-    color: theme.palette.secondary.light
+    // color: theme.palette.secondary.light
   },
   searchButton: {
     // backgroundColor: theme.palette.secondary.light,
@@ -42,7 +42,7 @@ const styles = theme => ({
     marginRight: theme.spacing.unit * 3
   },
   paper: {
-    backgroundColor: theme.palette.primary.main
+    // backgroundColor: theme.palette.primary.main
   }
 });
 
@@ -158,10 +158,10 @@ class RuleFilter extends Component {
             }}
           />
         </div>
-        <div className={classes.filterButtons}>
+        <div className={classes.ruleFilterButtons}>
           <Button
             variant={"raised"}
-            color={"secondary"}
+            color={"inherit"}
             className={classes.searchButton}
             onClick={this.onSearchClickHandler}
           >

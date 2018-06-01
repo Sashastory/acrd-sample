@@ -9,72 +9,67 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import MenuIcon from "@material-ui/icons/Menu";
+import NotificationMenu from "../Menu/NotificationMenu/NotificationMenu";
+import RuleSettingsMenu from "../Menu/RuleSettingsMenu/RuleSettingsMenu";
+import ListMenu from "../Menu/ListMenu/ListMenu";
+import AdministrationMenu from "../Menu/AdministrationMenu/AdministrationMenu";
+import NavigationItem from "../NavigationItem/NavigationItem";
 
 const styles = theme => ({
   root: {
-    flexGrow: 1
+    display: "flex",
+    marginBottom: theme.spacing.unit * 2
   },
-  flex: {
-    flex: 1
-  },
-  appToolbar: {
+  appBar: {
     backgroundColor: theme.palette.primary.dark
   },
-  helpButton: {
-    // backgroundColor: theme.palette.secondary.light,
-    marginLeft: theme.spacing.unit * 3
+  leftContainer: {
+    display: "flex",
+    flexGrow: 1,
+    justifyContent: "flex-start"
   },
-  exitButton: {
-    // backgroundColor: theme.palette.secondary.dark,
-    marginLeft: theme.spacing.unit * 3
-  },
-  leftIcon: {
-    marginRight: theme.spacing.unit
-  },
-  toolbarStyle: {
+  rightContainer: {
+    display: "flex",
+    flexGrow: 1,
     justifyContent: "flex-end"
-  }
+  },
+  mainButton: {
+    marginRight: theme.spacing.unit * 3
+  },
+  transButton: {}
 });
 
 class AppToolbar extends Component {
-  helpClickHandler = () => {
-    console.log("Help button pressed!");
-  };
-
-  exitClickHandler = () => {
-    console.log("Exit button pressed");
-  };
-
   render() {
     const { classes } = this.props;
 
     return (
       <div className={classes.root}>
-        <AppBar position={"static"} className={classes.appToolbar}>
+        <AppBar position={"static"} color={"primary"}>
           <Toolbar>
-            <Typography
-              variant={"title"}
-              color={"inherit"}
-              className={classes.flex}
-            >
-              ACRD-Sample
-            </Typography>
-            <Button
-              variant={"raised"}
-              color={"secondary"}
-              className={classes.helpButton}
-            >
-              <Icon className={classes.leftIcon}>help</Icon>
-              Помощь
-            </Button>
-            <Button
-              variant={"raised"}
-              color={"inherit"}
-              className={classes.exitButton}
-            >
-              <Icon className={classes.leftIcon}>exit_to_app</Icon>
-              Выход
-            </Button>
+            <div className={classes.leftContainer}>
+              <Button
+                aria-haspopup="false"
+                variant={"raised"}
+                color={"secondary"}
+                className={classes.mainButton}
+              >
+                <NavigationItem link="/">
+                  <Typography color={"inherit"}>Главная</Typography>
+                </NavigationItem>
+              </Button>
+              <NotificationMenu />
+              <RuleSettingsMenu />
+              <ListMenu />
+              <AdministrationMenu />
+            </div>
+            <div className={classes.rightContainer}>
+              <Button variant={"raised"} color={"secondary"}>
+                <NavigationItem link="/transactions">
+                  <Typography color={"inherit"}>Транзакции</Typography>
+                </NavigationItem>
+              </Button>
+            </div>
           </Toolbar>
         </AppBar>
       </div>

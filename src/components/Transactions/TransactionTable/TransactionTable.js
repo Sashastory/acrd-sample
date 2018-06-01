@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -18,53 +17,34 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { lighten } from "@material-ui/core/styles/colorManipulator";
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions/index";
-import RuleTableHead from "../RuleTable/RuleTableHead/RuleTableHead";
-import RuleTableToolbar from "../RuleTable/RuleTableToolbar/RuleTableToolbar";
-
-import classes from "./RuleTable.css";
+import TransactionTableHead from "../TransactionTable/TransactionTableHead/TransactionTableHead";
+import TransactionTableToolbar from "../TransactionTable/TransactionTableToolbar/TransactionTableToolbar";
 
 const styles = theme => ({
   root: {
     width: "100%",
-    marginTop: theme.spacing.unit * 3
+    marginTop: theme.spacing.unit * 2,
+    marginBottom: theme.spacing.unit * 2
   },
   table: {
-    // minWidth: 1020
+  },
+  tableCell: {
+    flexDirection: "inherit"
   },
   tableWrapper: {
     overflowX: "auto"
   }
 });
 
-class RuleTable extends Component {
+class TransactionTable extends Component {
   componentDidMount() {
-    this.props.onFetchRules();
+    this.props.onFetchTransactions();
   }
 
   state = {
     selected: [],
     page: 0,
     rowsPerPage: 5
-  };
-
-  ruleSelectClickHandler = rule => {
-    console.log("Rule select button pressed");
-  };
-
-  addClickHandler = () => {
-    console.log("Add button pressed");
-  };
-
-  editClickHandler = () => {
-    console.log("Edit button pressed");
-  };
-
-  deleteClickHandler = () => {
-    console.log("Delete button pressed");
-  };
-
-  hpanClickHandler = () => {
-    console.log("HPAN button pressed");
   };
 
   pageChangeHandler = (event, page) => {
@@ -77,56 +57,67 @@ class RuleTable extends Component {
     });
   };
 
+  transTableRowClickHandler = (event, trans) => {
+    const transactions = this.props.transactions;
+    this.props.onChangeSelectedTransactionAmount(trans.id);
+    this.props.onShowTransactionDetails(trans);
+  };
+
   isSelected = id => this.props.selected.indexOf(id) !== -1;
 
   render() {
     const { classes } = this.props;
-    const { rules, order, orderBy, selected } = this.props;
+    const { transactions, order, orderBy, selected } = this.props;
     const { page, rowsPerPage } = this.state;
     const emptyRows =
-      rowsPerPage - Math.min(rowsPerPage, rules.length - page * rowsPerPage);
+      rowsPerPage -
+      Math.min(rowsPerPage, transactions.length - page * rowsPerPage);
 
     return (
       <Paper className={classes.root}>
-        <RuleTableToolbar />
+        <TransactionTableToolbar />
         <div className={classes.tableWrapper}>
           <Table className={classes.table}>
-            <RuleTableHead />
+            <TransactionTableHead />
             <TableBody>
-              {rules
+              {transactions
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map(rule => {
-                  const isSelected = this.isSelected(rule.id);
+                .map(trans => {
+                  const isSelected = this.isSelected(trans.id);
                   return (
                     <TableRow
                       hover
-                      onClick={() => this.props.onChangeSelectedRuleAmount(rule.id)}
+                      onClick={event =>
+                        this.transTableRowClickHandler(event, trans)
+                      }
                       role="checkbox"
                       aria-checked={isSelected}
                       tabIndex={-1}
-                      key={rule.id}
+                      key={trans.id}
                       selected={isSelected}
                     >
                       <TableCell padding="checkbox">
                         <Checkbox checked={isSelected} />
                       </TableCell>
-                      <TableCell component="th" scope="row" padding="none">
-                        {rule.id}
-                      </TableCell>
-                      <TableCell>{rule.group}</TableCell>
-                      <TableCell>{rule.signal}</TableCell>
-                      <TableCell>{rule.riskValue}</TableCell>
-                      <TableCell>{rule.beginDate}</TableCell>
-                      <TableCell>{rule.endDate}</TableCell>
-                      <TableCell>{rule.type}</TableCell>
-                      <TableCell>{rule.author}</TableCell>
-                      <TableCell>{rule.description}</TableCell>
+                      <TableCell>{trans.cardNumber}</TableCell>
+                      <TableCell>{trans.dateTime}</TableCell>
+                      <TableCell>{trans.otv}</TableCell>
+                      <TableCell>{trans.amount}</TableCell>
+                      <TableCell>{trans.currency}</TableCell>
+                      <TableCell>{trans.operationCode}</TableCell>
+                      <TableCell>{trans.rules}</TableCell>
+                      <TableCell>{trans.score}</TableCell>
+                      <TableCell>{trans.city}</TableCell>
+                      <TableCell>{trans.category}</TableCell>
+                      <TableCell>{trans.institute}</TableCell>
+                      <TableCell>{trans.merchantName}</TableCell>
+                      <TableCell>{trans.terminalId}</TableCell>
                     </TableRow>
                   );
                 })}
               {emptyRows > 0 && (
                 <TableRow style={{ height: 49 * emptyRows }}>
-                  <TableCell colSpan={10} />
+                  <TableCell colSpan={14} />
                 </TableRow>
               )}
             </TableBody>
@@ -134,7 +125,7 @@ class RuleTable extends Component {
         </div>
         <TablePagination
           component="div"
-          count={rules.length}
+          count={transactions.length}
           rowsPerPage={rowsPerPage}
           page={page}
           backIconButtonProps={{
@@ -153,23 +144,24 @@ class RuleTable extends Component {
 
 const mapStateToProps = state => {
   return {
-    rules: state.rulesR.rules,
-    order: state.rulesR.order,
-    selected: state.rulesR.selected,
-    orderBy: state.rulesR.orderBy,
-    loading: state.rulesR.loading
+    transactions: state.transactionsR.transactions,
+    order: state.transactionsR.order,
+    selected: state.transactionsR.selected,
+    orderBy: state.transactionsR.orderBy,
+    loading: state.transactionsR.loading
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchRules: () => dispatch(actions.fetchRules()),
-    onShowRuleDetails: rule => dispatch(actions.showRuleDetais(rule)),
-    onChangeSelectedRuleAmount: selectedId =>
-      dispatch(actions.changeSelectedRuleAmount(selectedId))
+    onFetchTransactions: () => dispatch(actions.fetchTransactions()),
+    onChangeSelectedTransactionAmount: selectedId =>
+      dispatch(actions.changeSelectedTransactionAmount(selectedId)),
+    onShowTransactionDetails: transaction =>
+      dispatch(actions.showTransactionDetails(transaction))
   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(
-  withStyles(styles)(RuleTable)
+  withStyles(styles)(TransactionTable)
 );
