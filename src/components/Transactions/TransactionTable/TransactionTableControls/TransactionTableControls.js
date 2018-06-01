@@ -21,24 +21,23 @@ const styles = theme => ({
     }
 });
 
-class TransactionTableControls extends Component {
-    render() {
-        const {classes} = this.props;
+const TransactionTableControls = props => {
 
-        return (
-            <div className={classes.root}>
-                <Button className={classes.openButton} variant={"raised"}>
-                    Открыть выбранные
-                </Button>
-                <Button className={classes.blockButton} variant={"raised"}>
-                    Заблокировать карту
-                </Button>
-                <Button className={classes.addExclusionButton} variant={"raised"}>
-                    Добавить исключение
-                </Button>
-            </div>
-        );
-    }
-}
+    const {classes} = props;
+
+    return (
+        <div className={classes.root}>
+            <Button className={classes.openButton} variant={"raised"}>
+                Открыть выбранные
+            </Button>
+            <Button className={classes.blockButton} variant={"raised"}>
+                Заблокировать карту
+            </Button>
+            <Button className={classes.addExclusionButton} variant={"raised"}>
+                Добавить исключение
+            </Button>
+        </div>
+    );
+};
 
 export default withStyles(styles)(TransactionTableControls);

@@ -1,5 +1,5 @@
 import React from "react";
-import TranscationFilter from "../../components/Transactions/TransactionFilter/TransactionFilter";
+import TransactionFilter from "../../components/Transactions/TransactionFilter/TransactionFilter";
 import TransactionTable from "../../components/Transactions/TransactionTable/TransactionTable";
 import TransactionTableControls from '../../components/Transactions/TransactionTable/TransactionTableControls/TransactionTableControls';
 import TransactionTabs from '../../components/Transactions/TransactionTabs/TransactionTabs';
@@ -7,7 +7,7 @@ import TransactionTabs from '../../components/Transactions/TransactionTabs/Trans
 const transactions = props => {
     return (
         <div>
-            <TranscationFilter/>
+            <TransactionFilter/>
             <TransactionTable/>
             <TransactionTableControls/>
             {/*<TransactionTabs/>*/}

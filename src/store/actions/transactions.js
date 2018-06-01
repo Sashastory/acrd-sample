@@ -27,13 +27,6 @@ export const fetchTransactions = () => {
   };
 };
 
-export const showTransactionDetails = transaction => {
-  return {
-    transaction: transaction,
-    type: actionTypes.SHOW_TRANSACTION_DETAILS
-  }
-};
-
 export const changeSelectedTransactionAmount = selectedId => {
   return {
     selectedId: selectedId,

@@ -83,6 +83,7 @@ class TransactionTableHead extends Component {
     };
 
     render() {
+
         const {classes, order, orderBy, numSelected, rowCount} = this.props;
 
         return (
@@ -96,7 +97,7 @@ class TransactionTableHead extends Component {
                         />
                     </TableCell>
                     {columnData.map((column, index) => {
-                        if (index != 0) {
+                        if (index !== 0) {
                             return (
                                 <TableCell
                                     key={column.id}

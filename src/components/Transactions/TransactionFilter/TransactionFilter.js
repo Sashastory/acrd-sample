@@ -59,11 +59,11 @@ const flags = [
         value: 1
     },
     {
-        label: "XZ CHTO",
+        label: "FRAUD",
         value: 2
     },
     {
-        label: "KEK",
+        label: "HAS RULES",
         value: 3
     }
 ];

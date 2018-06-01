@@ -1,29 +1,27 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { withStyles } from "@material-ui/core/styles";
+import {NavLink} from "react-router-dom";
+import {withStyles} from "@material-ui/core/styles";
 
-const styles = theme => ({    
+const styles = theme => ({
     item: {
-      textDecoration: "none"
-    }, 
-    active: {
-        
-    }
+        textDecoration: "none"
+    },
+    active: {}
 });
 
 const navigationItem = props => {
-  
-  let { classes } = props;
 
-  return (
-    <NavLink
-      to={props.link}
-      exact={props.exact}
-      activeClassName={classes.active}
-    >
-      {props.children}
-    </NavLink>
-  );
+    const {classes} = props;
+
+    return (
+        <NavLink
+            to={props.link}
+            exact={props.exact}
+            activeClassName={classes.active}
+        >
+            {props.children}
+        </NavLink>
+    );
 };
 
 export default withStyles(styles)(navigationItem);

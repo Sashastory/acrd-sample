@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import {withStyles} from "@material-ui/core/styles";
 import classNames from "classnames";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -12,7 +12,6 @@ import {connect} from "react-redux";
 const styles = theme => ({
     root: {
         paddingRight: theme.spacing.unit,
-        // backgroundColor: theme.palette.primary.light
     },
     highlight: {
         color: theme.palette.text.main,
@@ -29,47 +28,46 @@ const styles = theme => ({
     }
 });
 
-class TransactionTableToolbar extends Component {
-    render() {
-        const {numSelected, classes} = this.props;
+const TransactionTableToolbar = props => {
 
-        return (
-            <Toolbar
-                className={classNames(classes.root, {
-                    [classes.highlight]: numSelected > 0
-                })}
-            >
-                <div className={classes.title}>
-                    {numSelected > 0 ? (
-                        <Typography color="inherit" variant="subheading">
-                            {numSelected} выбрано
-                        </Typography>
-                    ) : (
-                        <Typography variant="title" id="tableTitle" color={"inherit"}>
-                            Правила
-                        </Typography>
-                    )}
-                </div>
-                <div className={classes.spacer}/>
-                <div className={classes.actions}>
-                    {numSelected > 0 ? (
-                        <Tooltip title="Удаление">
-                            <IconButton aria-label="Удаление">
-                                <DeleteIcon/>
-                            </IconButton>
-                        </Tooltip>
-                    ) : (
-                        <Tooltip title="Список фильтров">
-                            <IconButton aria-label="Список фильтров">
-                                <FilterListIcon/>
-                            </IconButton>
-                        </Tooltip>
-                    )}
-                </div>
-            </Toolbar>
-        );
-    }
-}
+    const {numSelected, classes} = props;
+
+    return (
+        <Toolbar
+            className={classNames(classes.root, {
+                [classes.highlight]: numSelected > 0
+            })}
+        >
+            <div className={classes.title}>
+                {numSelected > 0 ? (
+                    <Typography color="inherit" variant="subheading">
+                        {numSelected} выбрано
+                    </Typography>
+                ) : (
+                    <Typography variant="title" id="tableTitle" color={"inherit"}>
+                        Правила
+                    </Typography>
+                )}
+            </div>
+            <div className={classes.spacer}/>
+            <div className={classes.actions}>
+                {numSelected > 0 ? (
+                    <Tooltip title="Удаление">
+                        <IconButton aria-label="Удаление">
+                            <DeleteIcon/>
+                        </IconButton>
+                    </Tooltip>
+                ) : (
+                    <Tooltip title="Список фильтров">
+                        <IconButton aria-label="Список фильтров">
+                            <FilterListIcon/>
+                        </IconButton>
+                    </Tooltip>
+                )}
+            </div>
+        </Toolbar>
+    );
+};
 
 const mapStateToProps = state => {
     return {

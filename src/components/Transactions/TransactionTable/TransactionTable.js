@@ -28,14 +28,14 @@ const styles = theme => ({
 });
 
 class TransactionTable extends Component {
+
     componentDidMount() {
         this.props.onFetchTransactions();
     }
 
     state = {
-        selected: [],
         page: 0,
-        rowsPerPage: 5
+        rowsPerPage: 10
     };
 
     pageChangeHandler = (event, page) => {
@@ -50,14 +50,12 @@ class TransactionTable extends Component {
 
     transTableRowClickHandler = (event, trans) => {
         this.props.onChangeSelectedTransactionAmount(trans.id);
-        this.props.onShowTransactionDetails(trans);
     };
 
     isSelected = id => this.props.selected.indexOf(id) !== -1;
 
     render() {
-        const {classes} = this.props;
-        const {transactions, order, orderBy, selected} = this.props;
+        const {transactions, classes} = this.props;
         const {page, rowsPerPage} = this.state;
         const emptyRows =
             rowsPerPage -
@@ -147,8 +145,6 @@ const mapDispatchToProps = dispatch => {
         onFetchTransactions: () => dispatch(actions.fetchTransactions()),
         onChangeSelectedTransactionAmount: selectedId =>
             dispatch(actions.changeSelectedTransactionAmount(selectedId)),
-        onShowTransactionDetails: transaction =>
-            dispatch(actions.showTransactionDetails(transaction))
     };
 };
 

@@ -1,26 +1,13 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
+import React from "react";
 import AppToolbar from "../../components/Navigation/AppToolbar/AppToolbar";
-import MainToolbar from "../../components/Navigation/MainToolbar/MainToolbar";
-import { withTheme } from "@material-ui/core/styles";
 
-const styles = theme => ({
-  root: {
-  }
-})
-
-class Layout extends Component {
-  render() {
-    const { classes } = this.props;
-
+const layout = props => {
     return (
-      <div className={classes.root}>
-        <AppToolbar />
-        <main>{this.props.children}</main>
-      </div>
+        <div>
+            <AppToolbar/>
+            <main>{props.children}</main>
+        </div>
     );
-  }
-}
+};
 
-export default withStyles(styles)(Layout);
+export default layout;

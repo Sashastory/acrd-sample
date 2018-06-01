@@ -8,7 +8,6 @@ export {
 } from "./rules";
 
 export {  
-  showTransactionDetails,
   fetchTransactions,
   changeSelectedTransactionAmount,
   selectAllTransactions,
