@@ -42,7 +42,7 @@ class AdministrationMenu extends Component {
           aria-owns={anchorEl ? "administration-menu" : null}
           aria-haspopup="true"
           variant={"raised"}
-          color={"secondary"}
+          color={"inherit"}
           className={classes.button}
           onClick={this.onClickHandler}
         >

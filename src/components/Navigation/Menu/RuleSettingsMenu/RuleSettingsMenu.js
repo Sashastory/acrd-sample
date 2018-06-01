@@ -43,7 +43,7 @@ class RuleSettingsMenu extends Component {
           aria-owns={anchorEl ? "rule-settings-menu" : null}
           aria-haspopup="true"
           variant={"raised"}
-          color={"secondary"}
+          color={"inherit"}
           className={classes.button}
           onClick={this.onClickHandler}
         >

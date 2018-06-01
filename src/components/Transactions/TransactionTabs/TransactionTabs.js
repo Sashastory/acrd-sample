@@ -11,7 +11,7 @@ const styles = theme => ({
     marginBottom: theme.spacing.unit * 2,
   },
   tabs: {
-    backgroundColor: theme.palette.secondary.light
+    // backgroundColor: theme.palette.secondary.light
   }
 });
 

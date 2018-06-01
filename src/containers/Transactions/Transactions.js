@@ -5,14 +5,14 @@ import TransactionTableControls from '../../components/Transactions/TransactionT
 import TransactionTabs from '../../components/Transactions/TransactionTabs/TransactionTabs';
 
 const transactions = props => {
-  return (
-    <div>
-      <TranscationFilter />
-      <TransactionTable />
-      <TransactionTableControls />
-      <TransactionTabs />
-    </div>
-  );
+    return (
+        <div>
+            <TranscationFilter/>
+            <TransactionTable/>
+            <TransactionTableControls/>
+            {/*<TransactionTabs/>*/}
+        </div>
+    );
 };
 
 export default transactions;
