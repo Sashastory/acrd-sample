@@ -3,10 +3,9 @@ import {NavLink} from "react-router-dom";
 import {withStyles} from "@material-ui/core/styles";
 
 const styles = theme => ({
-    item: {
-        textDecoration: "none"
-    },
-    active: {}
+    link: {
+        textDecoration: "none",
+    }
 });
 
 const navigationItem = props => {
@@ -17,7 +16,7 @@ const navigationItem = props => {
         <NavLink
             to={props.link}
             exact={props.exact}
-            activeClassName={classes.active}
+            className={classes.link}
         >
             {props.children}
         </NavLink>

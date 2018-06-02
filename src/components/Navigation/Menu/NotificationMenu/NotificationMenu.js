@@ -13,7 +13,8 @@ const styles = theme => ({
     },
     button: {
         marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit
+        marginRight: theme.spacing.unit,
+        // backgroundColor: theme.palette.primary.main
     }
 });
 
@@ -45,11 +46,10 @@ class NotificationMenu extends Component {
                     aria-owns={anchorEl ? "notification-menu" : null}
                     aria-haspopup="true"
                     variant={"raised"}
-                    color={"inherit"}
                     className={classes.button}
                     onClick={this.onClickHandler}
                 >
-                    Обработка событий
+                    <Typography variant={"button"}>Обработка событий</Typography>
                     <Icon className={classes.rightIcon}>arrow_drop_down</Icon>
                 </Button>
                 <Menu
@@ -60,7 +60,7 @@ class NotificationMenu extends Component {
                 >
                     <MenuItem onClick={this.onCloseHandler}>
                         <NavigationItem link="/transactions">
-                            <Typography color={"default"}>События</Typography>
+                            События
                         </NavigationItem>
                     </MenuItem>
                 </Menu>

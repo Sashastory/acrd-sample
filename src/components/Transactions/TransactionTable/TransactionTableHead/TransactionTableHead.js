@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {withStyles} from "@material-ui/core/styles";
 import {connect} from "react-redux";
+import Typography from '@material-ui/core/Typography'
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
@@ -10,10 +11,15 @@ import TableSortLabel from "@material-ui/core/TableSortLabel";
 import * as actions from "../../../../store/actions/index";
 
 const styles = theme => ({
-    tableHead: {},
+    tableHead: {
+        width: "1px",
+        whiteSpace: "nowrap"
+    },
+    tableRow: {},
     tableCell: {
-        flexDirection: "inherit"
+        width: "4%"
     }
+
 });
 
 const columnData = [
@@ -21,55 +27,88 @@ const columnData = [
         id: "id",
         numeric: true,
         disablePadding: true,
-        label: "ID"
+        label: "ID",
     },
     {
         cardNumber: "cardNumber",
         numeric: false,
         disablePadding: false,
-        label: "Номер карты"
+        label: "Номер карты",
     },
     {
         datetime: "dateTime",
         numeric: false,
         disablePadding: false,
-        label: "Дата время"
+        label: "Дата время",
     },
-    {otv: "otv", numeric: true, disablePadding: false, label: "ОТВ"},
-    {amount: "amount", numeric: true, disablePadding: false, label: "Сумма"},
-    {currency: "currency", numeric: true, disablePadding: false, label: "Валюта"},
+    {
+        otv: "otv",
+        numeric: true,
+        disablePadding: false,
+        label: "ОТВ",
+        style: {
+            width: "7%"
+        }
+    },
+    {
+        amount: "amount",
+        numeric: true,
+        disablePadding: false,
+        label: "Сумма",
+    },
+    {
+        currency: "currency",
+        numeric: true,
+        disablePadding: false,
+        label: "Валюта",
+    },
     {
         operationCode: "operationCode",
         numeric: false,
         disablePadding: false,
         label: "Код операции"
     },
-    {rules: "rules", numeric: true, disablePadding: false, label: "Правила"},
-    {score: "score", numeric: true, disablePadding: false, label: "Оценка"},
-    {city: "city", numeric: false, disablePadding: false, label: "Город"},
+    {
+        rules: "rules",
+        numeric: true,
+        disablePadding: false,
+        label: "Правила",
+    },
+    {
+        score: "score",
+        numeric: true,
+        disablePadding: false,
+        label: "Оценка",
+    },
+    {
+        city: "city",
+        numeric: false,
+        disablePadding: false,
+        label: "Город",
+    },
     {
         category: "category",
         numeric: true,
         disablePadding: false,
-        label: "Категория"
+        label: "Категория",
     },
     {
         institute: "institute",
         numeric: true,
         disablePadding: false,
-        label: "Институт"
+        label: "Институт",
     },
     {
         merchantName: "merchantName",
         numeric: false,
         disablePadding: false,
-        label: "Имя мерчанта"
+        label: "Имя мерчанта",
     },
     {
         terminalId: "terminalId",
         numeric: true,
         disablePadding: false,
-        label: "ID терминала"
+        label: "ID терминала",
     }
 ];
 
@@ -84,12 +123,12 @@ class TransactionTableHead extends Component {
 
     render() {
 
-        const {classes, order, orderBy, numSelected, rowCount} = this.props;
-
+        const {classes, order, orderBy, numSelected, rowCount, columnStyles} = this.props;
+        console.log(columnStyles);
         return (
             <TableHead className={classes.tableHead}>
-                <TableRow>
-                    <TableCell padding="checkbox">
+                <TableRow className={classes.tableRow}>
+                    <TableCell padding="checkbox" className={classes.tableCell}>
                         <Checkbox
                             indeterminate={numSelected > 0 && numSelected < rowCount}
                             checked={numSelected === rowCount}
@@ -104,7 +143,7 @@ class TransactionTableHead extends Component {
                                     numeric={column.numeric}
                                     padding={column.disablePadding ? "none" : "default"}
                                     sortDirection={orderBy === column.id ? order : false}
-                                    className={classes.tableCell}
+                                    style={columnStyles[Object.keys(column)[0]]}
                                 >
                                     <Tooltip
                                         title="Сортировать"
@@ -116,7 +155,7 @@ class TransactionTableHead extends Component {
                                             direction={order}
                                             onClick={this.createSortHandler(column.id)}
                                         >
-                                            {column.label}
+                                            <Typography variant={"body2"}>{column.label}</Typography>
                                         </TableSortLabel>
                                     </Tooltip>
                                 </TableCell>

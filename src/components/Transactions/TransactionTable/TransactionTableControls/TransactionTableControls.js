@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
 import {withStyles} from "@material-ui/core/styles";
 
 const styles = theme => ({
@@ -28,13 +27,13 @@ const TransactionTableControls = props => {
     return (
         <div className={classes.root}>
             <Button className={classes.openButton} variant={"raised"}>
-                Открыть выбранные
+                <Typography variant={"button"}>Открыть выбранные</Typography>
             </Button>
             <Button className={classes.blockButton} variant={"raised"}>
-                Заблокировать карту
+                <Typography variant={"button"}>Заблокировать карту</Typography>
             </Button>
             <Button className={classes.addExclusionButton} variant={"raised"}>
-                Добавить исключение
+                <Typography variant={"button"}>Добавить исключение</Typography>
             </Button>
         </div>
     );

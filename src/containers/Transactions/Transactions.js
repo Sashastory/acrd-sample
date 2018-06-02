@@ -9,7 +9,7 @@ const transactions = props => {
         <div>
             <TransactionFilter/>
             <TransactionTable/>
-            <TransactionTableControls/>
+            {/*<TransactionTableControls/>*/}
             {/*<TransactionTabs/>*/}
         </div>
     );

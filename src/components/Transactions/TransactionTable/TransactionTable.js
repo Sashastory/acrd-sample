@@ -11,6 +11,7 @@ import {connect} from "react-redux";
 import * as actions from "../../../store/actions/index";
 import TransactionTableHead from "../TransactionTable/TransactionTableHead/TransactionTableHead";
 import TransactionTableToolbar from "../TransactionTable/TransactionTableToolbar/TransactionTableToolbar";
+import Typography from "@material-ui/core/es/Typography/Typography";
 
 const styles = theme => ({
     root: {
@@ -18,7 +19,10 @@ const styles = theme => ({
         marginTop: theme.spacing.unit * 2,
         marginBottom: theme.spacing.unit * 2
     },
-    table: {},
+    table: {
+        tableLayout: "fixed",
+        whiteSpace: "nowrap"
+    },
     tableCell: {
         flexDirection: "inherit"
     },
@@ -55,8 +59,28 @@ class TransactionTable extends Component {
     isSelected = id => this.props.selected.indexOf(id) !== -1;
 
     render() {
+
         const {transactions, classes} = this.props;
         const {page, rowsPerPage} = this.state;
+
+        const columnStyles = {
+            id: {width: "1%", flexDirection: "inherit", textAlign: "center"},
+            checkbox: {width: "4%", flexDirection: "inherit", textAlign: "center"},
+            cardNumber: {width: "10%", flexDirection: "inherit", textAlign: "center"},
+            dateTime: {width: "10%", flexDirection: "inherit", textAlign: "center"},
+            otv: {width: "5%", flexDirection: "inherit", textAlign: "center"},
+            amount: {width: "5%", flexDirection: "inherit", textAlign: "center"},
+            currency: {width: "5%", flexDirection: "inherit", textAlign: "center"},
+            operationCode: {width: "10%", flexDirection: "inherit", textAlign: "center"},
+            rules: {width: "5%", flexDirection: "inherit", textAlign: "center"},
+            score: {width: "5%", flexDirection: "inherit", textAlign: "center"},
+            city: {width: "10%", flexDirection: "inherit", textAlign: "center"},
+            category: {width: "6%", flexDirection: "inherit", textAlign: "center"},
+            institute: {width: "5%", flexDirection: "inherit", textAlign: "center"},
+            merchantName: {width: "10%", flexDirection: "inherit", textAlign: "center"},
+            terminalId: {width: "10%", flexDirection: "inherit", textAlign: "center"},
+        };
+
         const emptyRows =
             rowsPerPage -
             Math.min(rowsPerPage, transactions.length - page * rowsPerPage);
@@ -66,7 +90,7 @@ class TransactionTable extends Component {
                 <TransactionTableToolbar/>
                 <div className={classes.tableWrapper}>
                     <Table className={classes.table}>
-                        <TransactionTableHead/>
+                        <TransactionTableHead columnStyles={columnStyles}/>
                         <TableBody>
                             {transactions
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -84,22 +108,48 @@ class TransactionTable extends Component {
                                             key={trans.id}
                                             selected={isSelected}
                                         >
-                                            <TableCell padding="checkbox">
+                                            <TableCell padding="checkbox" className={styles.checkbox}>
                                                 <Checkbox checked={isSelected}/>
                                             </TableCell>
-                                            <TableCell>{trans.cardNumber}</TableCell>
-                                            <TableCell>{trans.dateTime}</TableCell>
-                                            <TableCell>{trans.otv}</TableCell>
-                                            <TableCell>{trans.amount}</TableCell>
-                                            <TableCell>{trans.currency}</TableCell>
-                                            <TableCell>{trans.operationCode}</TableCell>
-                                            <TableCell>{trans.rules}</TableCell>
-                                            <TableCell>{trans.score}</TableCell>
-                                            <TableCell>{trans.city}</TableCell>
-                                            <TableCell>{trans.category}</TableCell>
-                                            <TableCell>{trans.institute}</TableCell>
-                                            <TableCell>{trans.merchantName}</TableCell>
-                                            <TableCell>{trans.terminalId}</TableCell>
+                                            <TableCell className={styles.cardNumber}>
+                                                <Typography variant={"body1"}>{trans.cardNumber}</Typography>
+                                            </TableCell>
+                                            <TableCell className={styles.dateTime}>
+                                                <Typography variant={"body1"}>{trans.dateTime}</Typography>
+                                            </TableCell>
+                                            <TableCell className={styles.otv}>
+                                                <Typography variant={"body1"}>{trans.otv}</Typography>
+                                            </TableCell>
+                                            <TableCell className={styles.amount}>
+                                                <Typography variant={"body1"}>{trans.amount}</Typography>
+                                            </TableCell>
+                                            <TableCell className={styles.currency}>
+                                                <Typography variant={"body1"}>{trans.currency}</Typography>
+                                            </TableCell>
+                                            <TableCell className={styles.operationCode}>
+                                                <Typography variant={"body1"}>{trans.operationCode}</Typography>
+                                            </TableCell>
+                                            <TableCell className={styles.rules}>
+                                                <Typography variant={"body1"}>{trans.rules}</Typography>
+                                            </TableCell>
+                                            <TableCell className={styles.score}>
+                                                <Typography variant={"body1"}>{trans.score}</Typography>
+                                            </TableCell>
+                                            <TableCell className={styles.city}>
+                                                <Typography variant={"body1"}>{trans.city}</Typography>
+                                            </TableCell>
+                                            <TableCell className={styles.category}>
+                                                <Typography variant={"body1"}>{trans.category}</Typography>
+                                            </TableCell>
+                                            <TableCell className={styles.institute}>
+                                                <Typography variant={"body1"}>{trans.institute}</Typography>
+                                            </TableCell>
+                                            <TableCell className={styles.merchantName}>
+                                                <Typography variant={"body1"}>{trans.merchantName}</Typography>
+                                            </TableCell>
+                                            <TableCell className={styles.terminalId}>
+                                                <Typography variant={"body1"}>{trans.terminalId}</Typography>
+                                            </TableCell>
                                         </TableRow>
                                     );
                                 })}

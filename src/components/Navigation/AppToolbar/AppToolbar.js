@@ -18,8 +18,12 @@ const styles = theme => ({
         display: "flex",
         justifyContent: "center"
     },
+    appBar: {
+        backgroundColor: "#fff"
+    },
     mainButton: {
-        marginRight: theme.spacing.unit * 3
+        marginRight: theme.spacing.unit,
+        // backgroundColor: theme.palette.primary.light,
     },
 });
 
@@ -29,16 +33,15 @@ const appToolbar = props => {
 
     return (
         <div className={classes.root}>
-            <AppBar position={"static"} color={"primary"}>
+            <AppBar position={"static"} className={classes.appBar}>
                 <Toolbar className={classes.toolbar}>
                     <Button
                         aria-haspopup="false"
                         variant={"raised"}
-                        color={"inherit"}
                         className={classes.mainButton}
                     >
                         <NavigationItem link="/">
-                            <Typography color={"inherit"}>Главная</Typography>
+                            <Typography variant={"button"} color={"#fff"}>Главная</Typography>
                         </NavigationItem>
                     </Button>
                     <NotificationMenu/>
