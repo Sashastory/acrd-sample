@@ -93,7 +93,7 @@ const TransactionTableToolbar = props => {
                     </Typography>
                 ) : (
                     <Typography variant="title" id="tableTitle" color={"inherit"}>
-                        Правила
+                        Транзакции
                     </Typography>
                 )}
             </div>

@@ -5,6 +5,7 @@ import {withStyles} from "@material-ui/core/styles";
 const styles = theme => ({
     link: {
         textDecoration: "none",
+        color: "#000"
     }
 });
 

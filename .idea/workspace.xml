@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8a76512-c4c8-4a7b-83fc-85c626502216" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation/AppToolbar/AppToolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/AppToolbar/AppToolbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Menu/AdministrationMenu/AdministrationMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Menu/AdministrationMenu/AdministrationMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Menu/ListMenu/ListMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Menu/ListMenu/ListMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Menu/NotificationMenu/NotificationMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Menu/NotificationMenu/NotificationMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Menu/RuleSettingsMenu/RuleSettingsMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Menu/RuleSettingsMenu/RuleSettingsMenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navigation/NavigationItem/NavigationItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/NavigationItem/NavigationItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableControls/TransactionTableControls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableControls/TransactionTableControls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableHead/TransactionTableHead.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableHead/TransactionTableHead.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableToolbar/TransactionTableToolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableToolbar/TransactionTableToolbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Transactions/Transactions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Transactions/Transactions.js" afterDir="false" />
     </list>
@@ -18,6 +10,7 @@
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/Navigation/Menu/NotificationMenu/NotificationMenu.js">
+      <file leaf-file-name="Transactions.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/containers/Transactions/Transactions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="173">
+              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -113,17 +106,18 @@
         <option value="$PROJECT_DIR$/src/store/actions/transactions.js" />
         <option value="$PROJECT_DIR$/src/store/actions/index.js" />
         <option value="$PROJECT_DIR$/src/store/reducers/transactions.js" />
-        <option value="$PROJECT_DIR$/src/containers/Transactions/Transactions.js" />
         <option value="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableControls/TransactionTableControls.js" />
-        <option value="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableToolbar/TransactionTableToolbar.js" />
         <option value="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTable.js" />
         <option value="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableHead/TransactionTableHead.js" />
-        <option value="$PROJECT_DIR$/src/components/Navigation/NavigationItem/NavigationItem.js" />
         <option value="$PROJECT_DIR$/src/components/Navigation/AppToolbar/AppToolbar.js" />
         <option value="$PROJECT_DIR$/src/components/Navigation/Menu/AdministrationMenu/AdministrationMenu.js" />
         <option value="$PROJECT_DIR$/src/components/Navigation/Menu/ListMenu/ListMenu.js" />
         <option value="$PROJECT_DIR$/src/components/Navigation/Menu/RuleSettingsMenu/RuleSettingsMenu.js" />
         <option value="$PROJECT_DIR$/src/components/Navigation/Menu/NotificationMenu/NotificationMenu.js" />
+        <option value="$PROJECT_DIR$/src/components/Navigation/NavigationItem/NavigationItem.js" />
+        <option value="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableToolbar/TransactionTableToolbar.js" />
+        <option value="$PROJECT_DIR$/src/components/Rules/RuleTable/RuleTableToolbar/RuleTableToolbar.js" />
+        <option value="$PROJECT_DIR$/src/containers/Transactions/Transactions.js" />
       </list>
     </option>
   </component>
@@ -143,16 +137,16 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="23" />
-    <option name="width" value="1680" />
-    <option name="height" value="953" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -175,149 +169,12 @@
               <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
               <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Navigation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Navigation" type="462c0819:PsiDirectoryNode" />
-              <item name="AppToolbar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Navigation" type="462c0819:PsiDirectoryNode" />
-              <item name="Menu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Navigation" type="462c0819:PsiDirectoryNode" />
-              <item name="Menu" type="462c0819:PsiDirectoryNode" />
-              <item name="AdministrationMenu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Navigation" type="462c0819:PsiDirectoryNode" />
-              <item name="Menu" type="462c0819:PsiDirectoryNode" />
-              <item name="ListMenu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Navigation" type="462c0819:PsiDirectoryNode" />
-              <item name="Menu" type="462c0819:PsiDirectoryNode" />
-              <item name="NotificationMenu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Navigation" type="462c0819:PsiDirectoryNode" />
-              <item name="Menu" type="462c0819:PsiDirectoryNode" />
-              <item name="RuleSettingsMenu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Transactions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Transactions" type="462c0819:PsiDirectoryNode" />
-              <item name="TransactionFilter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Transactions" type="462c0819:PsiDirectoryNode" />
-              <item name="TransactionTable" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Transactions" type="462c0819:PsiDirectoryNode" />
-              <item name="TransactionTable" type="462c0819:PsiDirectoryNode" />
-              <item name="TransactionTableControls" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Transactions" type="462c0819:PsiDirectoryNode" />
-              <item name="TransactionTable" type="462c0819:PsiDirectoryNode" />
-              <item name="TransactionTableHead" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Transactions" type="462c0819:PsiDirectoryNode" />
-              <item name="TransactionTable" type="462c0819:PsiDirectoryNode" />
-              <item name="TransactionTableToolbar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="hoc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="hoc" type="462c0819:PsiDirectoryNode" />
-              <item name="Layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-              <item name="reducers" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -449,11 +306,12 @@
       <workItem from="1526914697247" duration="1217000" />
       <workItem from="1526919334383" duration="1263000" />
       <workItem from="1527805409083" duration="28382000" />
+      <workItem from="1527926444451" duration="5392000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87326000" />
+    <option name="totallyTimeSpent" value="92718000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -465,27 +323,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <frame x="0" y="0" width="1536" height="864" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49896264" visible="true" weight="0.24642856" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" sideWeight="0.50103736" side_tool="true" weight="0.24954791" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32994923" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32987553" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49896264" visible="true" weight="0.24609375" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32987553" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32717678" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32987553" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32806325" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.47763" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="3" sideWeight="0.50103736" side_tool="true" weight="0.24954791" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32994923" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,6 +353,16 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/components/Navigation/Menu/NotificationMenu/NotificationMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.test.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -523,13 +391,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Navigation/MainToolbar/MainToolbar.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Navigation/MainToolbar/MainToolbar.css" />
     <entry file="file://$PROJECT_DIR$/src/components/Rules/Rules.css" />
     <entry file="file://$PROJECT_DIR$/src/components/Rules/Rules.js" />
     <entry file="file://$PROJECT_DIR$/src/index.js">
@@ -583,9 +445,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -593,9 +452,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-690">
           <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -606,20 +462,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Navigation/MainToolbar/MainToolbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Navigation/AppToolbar/AppToolbar.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Navigation/MainToolbar/MainToolbar.js" />
+    <entry file="file://$PROJECT_DIR$/src/components/Navigation/AppToolbar/AppToolbar.css" />
     <entry file="file://$PROJECT_DIR$/src/containers/Main/Main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -627,9 +471,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/Rules/Rules.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Rules/Rules.css" />
     <entry file="file://$PROJECT_DIR$/src/containers/Rules/Rules.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
@@ -661,13 +503,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Transactions/NewTransactionTable/NewTransactionTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="204" column="45" lean-forward="true" selection-start-line="204" selection-start-column="45" selection-end-line="204" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Transactions/NewTransactionTable/NewTransactionTable.js" />
     <entry file="file://$PROJECT_DIR$/src/store/reducers/transactions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -683,9 +519,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1419">
           <caret line="280" column="13" lean-forward="true" selection-start-line="280" selection-start-column="13" selection-end-line="280" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -703,59 +536,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/Transactions/Transactions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" column="36" lean-forward="true" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Rules/RuleTable/RuleTableHead/RuleTableHead.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="92" column="43" lean-forward="true" selection-start-line="92" selection-start-column="43" selection-end-line="92" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="881">
           <caret line="58" column="26" lean-forward="true" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableToolbar/TransactionTableToolbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="66" column="33" lean-forward="true" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Navigation/NavigationItem/NavigationItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -798,16 +585,63 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1210">
           <caret line="157" column="71" selection-start-line="157" selection-start-column="71" selection-end-line="157" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Navigation/NavigationItem/NavigationItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="33" lean-forward="true" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Navigation/Menu/NotificationMenu/NotificationMenu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="-72">
+          <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableToolbar/TransactionTableToolbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="89" column="36" lean-forward="true" selection-start-line="89" selection-start-column="36" selection-end-line="89" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Rules/RuleTable/RuleTableToolbar/RuleTableToolbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="36" column="6" lean-forward="true" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Transactions/Transactions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
