@@ -19,11 +19,11 @@ const styles = theme => ({
         justifyContent: "center"
     },
     appBar: {
-        backgroundColor: "#fff"
+        backgroundColor: theme.palette.primary.dark
     },
     mainButton: {
-        marginRight: theme.spacing.unit,
-        // backgroundColor: theme.palette.primary.light,
+        marginRight: theme.spacing.unit * 5,
+        backgroundColor: theme.palette.secondary.main,
     },
 });
 

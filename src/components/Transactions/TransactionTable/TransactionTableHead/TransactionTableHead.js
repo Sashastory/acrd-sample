@@ -13,7 +13,8 @@ import * as actions from "../../../../store/actions/index";
 const styles = theme => ({
     tableHead: {
         width: "1px",
-        whiteSpace: "nowrap"
+        whiteSpace: "nowrap",
+        backgroundColor: theme.palette.primary.dark
     },
     tableRow: {},
     tableCell: {
@@ -133,6 +134,7 @@ class TransactionTableHead extends Component {
                             indeterminate={numSelected > 0 && numSelected < rowCount}
                             checked={numSelected === rowCount}
                             onChange={this.onSelectAllTransactions}
+                            color={"#000"}
                         />
                     </TableCell>
                     {columnData.map((column, index) => {

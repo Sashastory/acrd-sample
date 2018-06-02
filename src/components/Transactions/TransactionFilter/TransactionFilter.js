@@ -33,6 +33,12 @@ const styles = theme => ({
         paddingTop: theme.spacing.unit * 3,
         paddingBottom: theme.spacing.unit * 3,
         paddingLeft: theme.spacing.unit * 3,
+        marginRight: theme.spacing.unit * 3,
+    },
+    panel: {
+        backgroundColor: theme.palette.primary.main
+    },
+    panelSummary: {
     },
     transFilterButtons: {
         display: "flex",
@@ -97,7 +103,7 @@ class TransactionFilter extends Component {
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position={"start"}>
-                                    <Icon color={"inherit"} className={classes.iconStyle}>credit_card</Icon>
+                                    <Icon color={"primary"} className={classes.iconStyle}>credit_card</Icon>
                                 </InputAdornment>
                             )
                         }}
@@ -112,7 +118,7 @@ class TransactionFilter extends Component {
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position={"start"}>
-                                    <Icon color={"inherit"} className={classes.iconStyle}>calendar_today</Icon>
+                                    <Icon color={"primary"} className={classes.iconStyle}>calendar_today</Icon>
                                 </InputAdornment>
                             )
                         }}
@@ -127,7 +133,7 @@ class TransactionFilter extends Component {
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position={"start"}>
-                                    <Icon color={"inherit"} className={classes.iconStyle}>calendar_today</Icon>
+                                    <Icon color={"primary"} className={classes.iconStyle}>calendar_today</Icon>
                                 </InputAdornment>
                             )
                         }}
@@ -142,7 +148,7 @@ class TransactionFilter extends Component {
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position={"start"}>
-                                    <Icon color={"inherit"} className={classes.iconStyle}>flag</Icon>
+                                    <Icon color={"primary"} className={classes.iconStyle}>flag</Icon>
                                 </InputAdornment>
                             )
                         }}
@@ -155,8 +161,8 @@ class TransactionFilter extends Component {
                     </TextField>
                 </div>
                 <div className={classes.filtersPanel}>
-                    <ExpansionPanel>
-                        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+                    <ExpansionPanel className={classes.panel}>
+                        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>} className={classes.panelSummary}>
                             <Typography variant={"subheading"} color={"inherit"}>
                                 Дополнительные фильтры
                             </Typography>

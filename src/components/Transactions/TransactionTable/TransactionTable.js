@@ -21,7 +21,8 @@ const styles = theme => ({
     },
     table: {
         tableLayout: "fixed",
-        whiteSpace: "nowrap"
+        whiteSpace: "nowrap",
+        // backgroundColor: theme.palette.primary.main
     },
     tableCell: {
         flexDirection: "inherit"
@@ -32,10 +33,6 @@ const styles = theme => ({
 });
 
 class TransactionTable extends Component {
-
-    componentDidMount() {
-        this.props.onFetchTransactions();
-    }
 
     state = {
         page: 0,
@@ -109,7 +106,7 @@ class TransactionTable extends Component {
                                             selected={isSelected}
                                         >
                                             <TableCell padding="checkbox" className={styles.checkbox}>
-                                                <Checkbox checked={isSelected}/>
+                                                <Checkbox checked={isSelected} color={"#000"}/>
                                             </TableCell>
                                             <TableCell className={styles.cardNumber}>
                                                 <Typography variant={"body1"}>{trans.cardNumber}</Typography>
@@ -192,7 +189,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchTransactions: () => dispatch(actions.fetchTransactions()),
         onChangeSelectedTransactionAmount: selectedId =>
             dispatch(actions.changeSelectedTransactionAmount(selectedId)),
     };

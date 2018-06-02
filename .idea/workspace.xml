@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8a76512-c4c8-4a7b-83fc-85c626502216" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/AppToolbar/AppToolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/AppToolbar/AppToolbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Menu/AdministrationMenu/AdministrationMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Menu/AdministrationMenu/AdministrationMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Menu/ListMenu/ListMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Menu/ListMenu/ListMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Menu/NotificationMenu/NotificationMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Menu/NotificationMenu/NotificationMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Menu/RuleSettingsMenu/RuleSettingsMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Menu/RuleSettingsMenu/RuleSettingsMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Transactions/TransactionFilter/TransactionFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Transactions/TransactionFilter/TransactionFilter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableHead/TransactionTableHead.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableHead/TransactionTableHead.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableToolbar/TransactionTableToolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableToolbar/TransactionTableToolbar.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,10 +34,13 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableToolbar/TransactionTableToolbar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            <state relative-caret-position="164">
+              <caret line="46" column="45" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,7 +103,6 @@
         <option value="$PROJECT_DIR$/src/components/Transactions/TransactionTabs/TransactionDetails/TransactionDetails.js" />
         <option value="$PROJECT_DIR$/src/components/Navigation/AppToolbar/AppToolbar.css" />
         <option value="$PROJECT_DIR$/src/containers/Main/Main.js" />
-        <option value="$PROJECT_DIR$/src/components/Transactions/TransactionFilter/TransactionFilter.js" />
         <option value="$PROJECT_DIR$/src/hoc/Layout/Layout.js" />
         <option value="$PROJECT_DIR$/src/components/Transactions/TransactionTable/NewTransactionTable.js" />
         <option value="$PROJECT_DIR$/src/components/MaterialTestComponent/EnhancedTable.js" />
@@ -101,18 +112,19 @@
         <option value="$PROJECT_DIR$/src/store/actions/index.js" />
         <option value="$PROJECT_DIR$/src/store/reducers/transactions.js" />
         <option value="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableControls/TransactionTableControls.js" />
-        <option value="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTable.js" />
-        <option value="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableHead/TransactionTableHead.js" />
-        <option value="$PROJECT_DIR$/src/components/Navigation/AppToolbar/AppToolbar.js" />
-        <option value="$PROJECT_DIR$/src/components/Navigation/Menu/AdministrationMenu/AdministrationMenu.js" />
-        <option value="$PROJECT_DIR$/src/components/Navigation/Menu/ListMenu/ListMenu.js" />
-        <option value="$PROJECT_DIR$/src/components/Navigation/Menu/RuleSettingsMenu/RuleSettingsMenu.js" />
-        <option value="$PROJECT_DIR$/src/components/Navigation/Menu/NotificationMenu/NotificationMenu.js" />
         <option value="$PROJECT_DIR$/src/components/Navigation/NavigationItem/NavigationItem.js" />
-        <option value="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableToolbar/TransactionTableToolbar.js" />
         <option value="$PROJECT_DIR$/src/components/Rules/RuleTable/RuleTableToolbar/RuleTableToolbar.js" />
         <option value="$PROJECT_DIR$/src/containers/Transactions/Transactions.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/components/Transactions/TransactionFilter/TransactionFilter.js" />
+        <option value="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTable.js" />
+        <option value="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableHead/TransactionTableHead.js" />
+        <option value="$PROJECT_DIR$/src/components/Navigation/Menu/AdministrationMenu/AdministrationMenu.js" />
+        <option value="$PROJECT_DIR$/src/components/Navigation/Menu/ListMenu/ListMenu.js" />
+        <option value="$PROJECT_DIR$/src/components/Navigation/Menu/NotificationMenu/NotificationMenu.js" />
+        <option value="$PROJECT_DIR$/src/components/Navigation/Menu/RuleSettingsMenu/RuleSettingsMenu.js" />
+        <option value="$PROJECT_DIR$/src/components/Navigation/AppToolbar/AppToolbar.js" />
+        <option value="$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableToolbar/TransactionTableToolbar.js" />
       </list>
     </option>
   </component>
@@ -278,13 +290,6 @@
               <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
               <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="hoc" type="462c0819:PsiDirectoryNode" />
-              <item name="Layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="acrd-sample" type="b2602c69:ProjectViewProjectNode" />
-              <item name="acrd-sample" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="store" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -442,7 +447,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92874000" />
+    <option name="totallyTimeSpent" value="97000000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -468,7 +473,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32987553" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.47763" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.47715735" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32791877" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -539,8 +544,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        <state relative-caret-position="396">
+          <caret line="18" column="15" lean-forward="true" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -632,6 +637,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="168" column="17" lean-forward="true" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+            <element signature="e#138#4775#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -649,62 +658,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Transactions/TransactionFilter/TransactionFilter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2958">
-          <caret line="146" column="29" lean-forward="true" selection-start-line="146" selection-start-column="29" selection-end-line="146" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Rules/RuleTable/RuleTableHead/RuleTableHead.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="881">
-          <caret line="58" column="26" lean-forward="true" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Navigation/AppToolbar/AppToolbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="26" column="6" lean-forward="true" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Navigation/Menu/AdministrationMenu/AdministrationMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Navigation/Menu/ListMenu/ListMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Navigation/Menu/RuleSettingsMenu/RuleSettingsMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableControls/TransactionTableControls.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableHead/TransactionTableHead.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1210">
-          <caret line="157" column="71" selection-start-line="157" selection-start-column="71" selection-end-line="157" selection-end-column="71" />
         </state>
       </provider>
     </entry>
@@ -718,26 +678,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Navigation/Menu/NotificationMenu/NotificationMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-72">
-          <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableToolbar/TransactionTableToolbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="89" column="36" lean-forward="true" selection-start-line="89" selection-start-column="36" selection-end-line="89" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Rules/RuleTable/RuleTableToolbar/RuleTableToolbar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -745,20 +685,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTable.js">
+    <entry file="file://$PROJECT_DIR$/src/containers/Transactions/Transactions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="36" column="6" lean-forward="true" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+        <state relative-caret-position="462">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/Transactions/Transactions.js">
+    <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+        <state relative-caret-position="288">
+          <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Transactions/TransactionFilter/TransactionFilter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="102" column="69" selection-start-line="102" selection-start-column="69" selection-end-line="102" selection-end-column="69" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableHead/TransactionTableHead.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="137" column="26" lean-forward="true" selection-start-line="137" selection-start-column="26" selection-end-line="137" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Navigation/Menu/AdministrationMenu/AdministrationMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="15" column="53" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Navigation/Menu/ListMenu/ListMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="15" column="53" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Navigation/Menu/NotificationMenu/NotificationMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Navigation/Menu/RuleSettingsMenu/RuleSettingsMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Navigation/AppToolbar/AppToolbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="22" column="6" lean-forward="true" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Transactions/TransactionTable/TransactionTableToolbar/TransactionTableToolbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="46" column="45" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

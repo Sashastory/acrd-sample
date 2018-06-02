@@ -4,8 +4,10 @@ import classNames from "classnames";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import DeleteIcon from "@material-ui/icons/Delete";
 import Icon from '@material-ui/core/Icon';
+import LaunchIcon from '@material-ui/icons/Launch';
+import LockIcon from '@material-ui/icons/Lock';
+import WorkIcon from '@material-ui/icons/Work';
 import {connect} from "react-redux";
 import Button from "@material-ui/core/es/Button/Button";
 
@@ -16,7 +18,7 @@ const styles = theme => ({
         paddingRight: theme.spacing.unit,
     },
     highlight: {
-        color: theme.palette.text.main,
+        color: "#000",
         backgroundColor: theme.palette.secondary.main
     },
     actions: {
@@ -29,7 +31,9 @@ const styles = theme => ({
         flex: "0 0 auto"
     },
     icon: {
-        marginRight: theme.spacing.unit
+        marginRight: theme.spacing.unit,
+    },
+    actionButton: {
     }
 });
 
@@ -40,13 +44,13 @@ const TransactionTableToolbar = props => {
     const iconFragment = (
         <React.Fragment>
             <IconButton disabled={numSelected <= 0} aria-label="Открыть">
-                <DeleteIcon/>
+                <LaunchIcon color={"inherit"}/>
             </IconButton>
             <IconButton disabled={numSelected <= 0} aria-label="Заблокировать">
-                <DeleteIcon/>
+                <LockIcon color={"inherit"}/>
             </IconButton>
             <IconButton disabled={numSelected <= 0} aria-label="Доб исключение">
-                <DeleteIcon/>
+                <WorkIcon color={"inherit"}/>
             </IconButton>
         </React.Fragment>
     );
@@ -56,25 +60,28 @@ const TransactionTableToolbar = props => {
             <Button
                 variant={"raised"}
                 onClick={onOpenClick}
-                color={"default"}
+                color={"primary"}
+                className={classes.actionButton}
             >
-                <Icon className={classes.icon} color={"default"}>launch</Icon>
+                <Icon className={classes.icon} color={"secondary"}>launch</Icon>
                 <Typography variant={"button"}>Открыть</Typography>
             </Button>
             <Button
                 variant={"raised"}
                 onClick={onBlockClick}
-                color={"default"}
+                color={"primary"}
+                className={classes.actionButton}
             >
-                <Icon className={classes.icon} color={"default"}>lock</Icon>
+                <Icon className={classes.icon} color={"secondary"}>lock</Icon>
                 <Typography variant={"button"}>Заблокировать</Typography>
             </Button>
             <Button
                 variant={"raised"}
                 onClick={onAddExclClick}
-                color={"default"}
+                color={"primary"}
+                className={classes.actionButton}
             >
-                <Icon className={classes.icon} color={"default"}>work</Icon>
+                <Icon className={classes.icon} color={"secondary"}>work</Icon>
                 <Typography variant={"button"}>Доб исключение</Typography>
             </Button>
         </React.Fragment>
@@ -99,7 +106,7 @@ const TransactionTableToolbar = props => {
             </div>
             <div className={classes.actions}>
                 {/*{iconFragment}*/}
-                {numSelected > 0 ? buttonFragment : null}
+                {numSelected > 0 ? iconFragment : null}
             </div>
         </Toolbar>
     );
