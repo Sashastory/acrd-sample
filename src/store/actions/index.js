@@ -1,15 +1,16 @@
 export {
-  showRuleDetais,
-  fetchRules,
-  fetchColumnData,
-  changeSelectedRuleAmount,
-  selectAllRules,
-  sortRuleTable,
+    showRuleDetais,
+    fetchRules,
+    fetchColumnData,
+    changeSelectedRuleAmount,
+    selectAllRules,
+    sortRuleTable,
 } from "./rules";
 
-export {  
-  fetchTransactions,
-  changeSelectedTransactionAmount,
-  selectAllTransactions,
-  sortTransactionTable
+export {
+    fetchTransactions,
+    changeSelectedTransactionAmount,
+    selectAllTransactions,
+    sortTransactionTable,
+    filterTransactionTable
 } from './transactions';

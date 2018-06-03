@@ -1,10 +1,7 @@
 import React, {Component} from "react";
 import {withStyles} from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import Select from "@material-ui/core/Select";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
+import * as actions from '../../../store/actions/index';
 import MenuItem from "@material-ui/core/MenuItem";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
@@ -178,5 +175,11 @@ class TransactionFilter extends Component {
         );
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onFilterTransactionTable: (filter) => dispatch(actions.filterTransactionTable(filter))
+    }
+};
 
 export default withStyles(styles)(TransactionFilter);

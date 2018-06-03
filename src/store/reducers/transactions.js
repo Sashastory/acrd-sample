@@ -166,6 +166,12 @@ const initialState = {
     ],
     transaction: {},
     selected: [],
+    filter: {
+        cardNumber: "",
+        dateFrom: "",
+        dateUntil: "",
+        flag: ""
+    },
     order: "asc",
     orderBy: "dateTime",
     rowCount: 10,
@@ -234,6 +240,12 @@ const selectAllTransactions = (state, action) => {
     return updateObject(state, {selected: []});
 };
 
+const filterTransactionTable = (state, action) => {
+    console.log("Time to invent filtering");
+    console.log(action.filter);
+    return state;
+};
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.FETCH_TRANSACTIONS_START:
@@ -253,6 +265,9 @@ const reducer = (state = initialState, action) => {
 
         case actionTypes.SELECT_ALL_TRANSACTIONS:
             return selectAllTransactions(state, action);
+
+        case actionTypes.FILTER_TRANSACTION_TABLE:
+            return filterTransactionTable(state, action);
 
         default:
             return state;
