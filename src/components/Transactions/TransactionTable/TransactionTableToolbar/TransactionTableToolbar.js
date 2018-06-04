@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import {withStyles} from "@material-ui/core/styles";
 import classNames from "classnames";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -10,12 +10,18 @@ import LockIcon from '@material-ui/icons/Lock';
 import WorkIcon from '@material-ui/icons/Work';
 import {connect} from "react-redux";
 import Button from "@material-ui/core/es/Button/Button";
+import BlockCardsDialog from '../../../../containers/Transactions/BlockCardsDialog/BlockCardsDialog';
+
 
 const styles = theme => ({
     root: {
         display: 'flex',
         justifyContent: "space-between",
         paddingRight: theme.spacing.unit,
+    },
+    dialog: {
+        width: "80%",
+        maxHeight: 500
     },
     highlight: {
         color: "#000",
@@ -33,88 +39,118 @@ const styles = theme => ({
     icon: {
         marginRight: theme.spacing.unit,
     },
-    actionButton: {
-    }
+    actionButton: {}
 });
 
-const TransactionTableToolbar = props => {
+class TransactionTableToolbar extends Component {
 
-    const { onOpenClick, onBlockClick, onAddExclClick, numSelected, classes} = props;
+    state = {
+        blockDialogOpen: "false",
+        addExclDialogOpen: "false",
+    };
 
-    const iconFragment = (
-        <React.Fragment>
-            <IconButton disabled={numSelected <= 0} aria-label="Открыть">
-                <LaunchIcon color={"inherit"}/>
-            </IconButton>
-            <IconButton disabled={numSelected <= 0} aria-label="Заблокировать">
-                <LockIcon color={"inherit"}/>
-            </IconButton>
-            <IconButton disabled={numSelected <= 0} aria-label="Доб исключение">
-                <WorkIcon color={"inherit"}/>
-            </IconButton>
-        </React.Fragment>
-    );
+    blockDialogCloseHandler = () => {
+        console.log("Block dialog cancel button pressed");
+        this.setState({
+            blockDialogOpen: "false"
+        })
+    };
 
-    const buttonFragment = (
-        <React.Fragment>
-            <Button
-                variant={"raised"}
-                onClick={onOpenClick}
-                color={"primary"}
-                className={classes.actionButton}
-            >
-                <Icon className={classes.icon} color={"secondary"}>launch</Icon>
-                <Typography variant={"button"}>Открыть</Typography>
-            </Button>
-            <Button
-                variant={"raised"}
-                onClick={onBlockClick}
-                color={"primary"}
-                className={classes.actionButton}
-            >
-                <Icon className={classes.icon} color={"secondary"}>lock</Icon>
-                <Typography variant={"button"}>Заблокировать</Typography>
-            </Button>
-            <Button
-                variant={"raised"}
-                onClick={onAddExclClick}
-                color={"primary"}
-                className={classes.actionButton}
-            >
-                <Icon className={classes.icon} color={"secondary"}>work</Icon>
-                <Typography variant={"button"}>Доб исключение</Typography>
-            </Button>
-        </React.Fragment>
-    );
+    blockDialogOpenHandler = () => {
+        console.log("Block dialog open button pressed");
+        this.setState({
+            blockDialogOpen: "true"
+        });
+    };
 
-    return (
-        <Toolbar
-            className={classNames(classes.root, {
-                [classes.highlight]: numSelected > 0
-            })}
-        >
-            <div className={classes.title}>
-                {numSelected > 0 ? (
-                    <Typography color="inherit" variant="subheading">
-                        {numSelected} выбрано
-                    </Typography>
-                ) : (
-                    <Typography variant="title" id="tableTitle" color={"inherit"}>
-                        Транзакции
-                    </Typography>
-                )}
+    render() {
+
+        const {onOpenClick, onBlockClick, onAddExclClick, selected, classes} = this.props;
+
+        const numSelected = selected.length;
+
+        const iconFragment = (
+            <React.Fragment>
+                <IconButton disabled={numSelected <= 0} aria-label="Открыть">
+                    <LaunchIcon color={"inherit"}/>
+                </IconButton>
+                <IconButton disabled={numSelected <= 0} aria-label="Заблокировать">
+                    <LockIcon color={"inherit"}/>
+                </IconButton>
+                <IconButton disabled={numSelected <= 0} aria-label="Доб исключение">
+                    <WorkIcon color={"inherit"}/>
+                </IconButton>
+            </React.Fragment>
+        );
+
+        const buttonFragment = (
+            <React.Fragment>
+                <Button
+                    variant={"raised"}
+                    onClick={onOpenClick}
+                    color={"primary"}
+                    className={classes.actionButton}
+                >
+                    <Icon className={classes.icon} color={"secondary"}>launch</Icon>
+                    <Typography variant={"button"}>Открыть</Typography>
+                </Button>
+                <Button
+                    variant={"raised"}
+                    onClick={onBlockClick}
+                    color={"primary"}
+                    className={classes.actionButton}
+                >
+                    <Icon className={classes.icon} color={"secondary"}>lock</Icon>
+                    <Typography variant={"button"}>Заблокировать</Typography>
+                </Button>
+                <Button
+                    variant={"raised"}
+                    onClick={onAddExclClick}
+                    color={"primary"}
+                    className={classes.actionButton}
+                >
+                    <Icon className={classes.icon} color={"secondary"}>work</Icon>
+                    <Typography variant={"button"}>Доб исключение</Typography>
+                </Button>
+            </React.Fragment>
+        );
+
+        return (
+            <div>
+                <Toolbar
+                    className={classNames(classes.root, {
+                        [classes.highlight]: numSelected > 0
+                    })}
+                >
+                    <div className={classes.title}>
+                        {numSelected > 0 ? (
+                            <Typography color="inherit" variant="subheading">
+                                {numSelected} выбрано
+                            </Typography>
+                        ) : (
+                            <Typography variant="title" id="tableTitle" color={"inherit"}>
+                                Транзакции
+                            </Typography>
+                        )}
+                    </div>
+                    <div className={classes.actions}>
+                        {/*{iconFragment}*/}
+                        {numSelected > 0 ? iconFragment : null}
+                    </div>
+                </Toolbar>
+                <BlockCardsDialog
+                    cards={selected.map(trans => trans.cardNumber)}
+                    open={this.state.blockDialogOpen}
+                    onClose={this.blockDialogCloseHandler}
+                />
             </div>
-            <div className={classes.actions}>
-                {/*{iconFragment}*/}
-                {numSelected > 0 ? iconFragment : null}
-            </div>
-        </Toolbar>
-    );
-};
+        );
+    }
+}
 
 const mapStateToProps = state => {
     return {
-        numSelected: state.transactionsR.selected.length
+        selected: state.transactionsR.selected
     };
 };
 
