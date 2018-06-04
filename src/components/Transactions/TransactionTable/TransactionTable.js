@@ -29,6 +29,9 @@ const styles = theme => ({
     },
     tableWrapper: {
         overflowX: "auto"
+    },
+    checkbox: {
+        color: "#000"
     }
 });
 
@@ -106,7 +109,7 @@ class TransactionTable extends Component {
                                             selected={isSelected}
                                         >
                                             <TableCell padding="checkbox" className={styles.checkbox}>
-                                                <Checkbox checked={isSelected} color={"#000"}/>
+                                                <Checkbox checked={isSelected} className={classes.checkbox}/>
                                             </TableCell>
                                             <TableCell className={styles.cardNumber}>
                                                 <Typography variant={"body1"}>{trans.cardNumber}</Typography>

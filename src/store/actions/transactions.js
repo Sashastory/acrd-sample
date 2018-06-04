@@ -1,4 +1,5 @@
 import * as actionTypes from "./actionTypes";
+import axios from '../../axios/axios-transactions';
 
 export const fetchTransactionStart = () => {
     return {
@@ -23,7 +24,14 @@ export const fetchTransactionsFail = error => {
 export const fetchTransactions = () => {
     return dispatch => {
         dispatch(fetchTransactionStart());
-        dispatch(fetchTransactionsSuccess({}));
+        console.log("Trying to fetch transactions from backend...");
+        axios.get().then(
+            response => {
+                dispatch(fetchTransactionsSuccess(response.data))
+            }
+        ).catch(error => {
+            dispatch(fetchTransactionsFail(error))
+        });
     };
 };
 

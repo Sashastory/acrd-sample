@@ -25,6 +25,9 @@ const styles = theme => ({
         marginRight: theme.spacing.unit * 5,
         backgroundColor: theme.palette.secondary.main,
     },
+    typography: {
+        color: "#000"
+    }
 });
 
 const appToolbar = props => {
@@ -41,7 +44,7 @@ const appToolbar = props => {
                         className={classes.mainButton}
                     >
                         <NavigationItem link="/">
-                            <Typography variant={"button"} color={"#fff"}>Главная</Typography>
+                            <Typography variant={"button"} className={classes.typography}>Главная</Typography>
                         </NavigationItem>
                     </Button>
                     <NotificationMenu/>

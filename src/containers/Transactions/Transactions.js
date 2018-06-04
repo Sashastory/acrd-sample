@@ -8,18 +8,15 @@ import TransactionTabs from '../../components/Transactions/TransactionTabs/Trans
 
 class Transactions extends Component {
 
-    componenDidMount() {
+    componentDidMount() {
         this.props.onFetchTransactions();
     }
 
     render() {
-
-        const { transactions } = this.props;
-
         return (
             <div>
                 <TransactionFilter/>
-                <TransactionTable transactions={transactions}/>
+                <TransactionTable />
                 {/*<TransactionTableControls/>*/}
                 {/*<TransactionTabs/>*/}
             </div>

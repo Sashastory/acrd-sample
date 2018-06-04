@@ -19,6 +19,9 @@ const styles = theme => ({
     tableRow: {},
     tableCell: {
         width: "4%"
+    },
+    checkbox: {
+        color: "#000"
     }
 
 });
@@ -125,7 +128,6 @@ class TransactionTableHead extends Component {
     render() {
 
         const {classes, order, orderBy, numSelected, rowCount, columnStyles} = this.props;
-        console.log(columnStyles);
         return (
             <TableHead className={classes.tableHead}>
                 <TableRow className={classes.tableRow}>
@@ -134,7 +136,7 @@ class TransactionTableHead extends Component {
                             indeterminate={numSelected > 0 && numSelected < rowCount}
                             checked={numSelected === rowCount}
                             onChange={this.onSelectAllTransactions}
-                            color={"#000"}
+                            className={classes.checkbox}
                         />
                     </TableCell>
                     {columnData.map((column, index) => {
