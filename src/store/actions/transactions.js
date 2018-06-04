@@ -24,7 +24,6 @@ export const fetchTransactionsFail = error => {
 export const fetchTransactions = () => {
     return dispatch => {
         dispatch(fetchTransactionStart());
-        console.log("Trying to fetch transactions from backend...");
         axios.get().then(
             response => {
                 dispatch(fetchTransactionsSuccess(response.data))
@@ -56,10 +55,36 @@ export const selectAllTransactions = checked => {
     };
 };
 
-export const filterTransactionTable = filter => {
+export const filterTransactionsStart = () => {
     return {
-        filter: filter,
-        type: actionTypes.FILTER_TRANSACTION_TABLE
+        type: actionTypes.FILTER_TRANSACTIONS_START
+    }
+};
+
+export const filterTransactionsSuccess = (transactions) => {
+    return {
+        transactions: transactions,
+        type: actionTypes.FILTER_TRANSACTIONS_SUCCESS
+    }
+};
+
+export const filterTransactionsFail = () => {
+    return {
+        type: actionTypes.FILTER_TRANSACTIONS_FAIL
+    }
+};
+
+export const filterTransactionTable = (filter, value) => {
+    return dispatch => {
+        dispatch(filterTransactionsStart());
+        const url = `/transaction?${filter}=${value}`;
+        axios.get(url)
+            .then(response => {
+                    dispatch(filterTransactionsSuccess(response.data))
+                }
+            ).catch(error => {
+            dispatch(filterTransactionsFail(error))
+        });
     };
 };
 

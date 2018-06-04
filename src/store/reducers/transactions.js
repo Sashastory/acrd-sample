@@ -7,8 +7,8 @@ const initialState = {
     selected: [],
     filter: {
         cardNumber: "",
-        dateFrom: "",
-        dateUntil: "",
+        dateAfter: "",
+        dateBefore: "",
         flag: ""
     },
     order: "asc",
@@ -79,11 +79,21 @@ const selectAllTransactions = (state, action) => {
     return updateObject(state, {selected: []});
 };
 
-const filterTransactionTable = (state, action) => {
-    console.log("Time to invent filtering");
-    console.log(action.filter);
-    return state;
+const filterTransactionsStart = (state, action) => {
+    return updateObject(state, {loading: true});
 };
+
+const filterTransactionsSuccess = (state, action) => {
+    return updateObject(state, {
+            transactions: action.transactions,
+            loading: true
+        });
+};
+
+const filterTransactionsFail = (state, action) => {
+    return updateObject(state, {loading: false});
+};
+
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -105,8 +115,14 @@ const reducer = (state = initialState, action) => {
         case actionTypes.SELECT_ALL_TRANSACTIONS:
             return selectAllTransactions(state, action);
 
-        case actionTypes.FILTER_TRANSACTION_TABLE:
-            return filterTransactionTable(state, action);
+        case actionTypes.FILTER_TRANSACTIONS_START:
+            return filterTransactionsStart(state, action);
+
+        case actionTypes.FILTER_TRANSACTIONS_SUCCESS:
+            return filterTransactionsSuccess(state, action);
+
+        case actionTypes.FILTER_TRANSACTIONS_FAIL:
+            return filterTransactionsFail(state, action);
 
         default:
             return state;

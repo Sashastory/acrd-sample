@@ -134,7 +134,7 @@ class TransactionDetails extends Component {
           <TextField
             id="operationCode-field"
             label="Тип операции"
-            value={transaction.operationCode}
+            value={transaction.countryCode}
             className={classes.textField}
             onChange={this.fieldChangeHandler("cardNumber")}
             InputLabelProps={{

@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {withStyles} from "@material-ui/core/styles";
+import { connect } from 'react-redux';
 import TextField from "@material-ui/core/TextField";
+import moment from 'moment';
 import * as actions from '../../../store/actions/index';
 import MenuItem from "@material-ui/core/MenuItem";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -37,6 +39,10 @@ const styles = theme => ({
     },
     panelSummary: {
     },
+    panelDetails: {
+        display: "flex",
+        flexDirection: "column"
+    },
     transFilterButtons: {
         display: "flex",
         marginLeft: theme.spacing.unit * 3,
@@ -45,14 +51,30 @@ const styles = theme => ({
     cardNumberField: {
         marginRight: theme.spacing.unit * 2,
     },
-    dateFromField: {
+    dateAfterField: {
         marginRight: theme.spacing.unit * 2
     },
-    dateUntilField: {
+    dateBeforeField: {
         marginRight: theme.spacing.unit * 2
     },
     flagField: {
         marginRight: theme.spacing.unit * 2
+    },
+    merchantNameField: {
+        marginTop: theme.spacing.unit ,
+        marginBottom: theme.spacing.unit
+    },
+    terminalIdField: {
+        marginTop: theme.spacing.unit,
+        marginBottom: theme.spacing.unit
+    },
+    countryCodeField: {
+        marginTop: theme.spacing.unit,
+        marginBottom: theme.spacing.unit
+    },
+    terminalTypeField: {
+        marginTop: theme.spacing.unit,
+        marginBottom: theme.spacing.unit
     }
 });
 
@@ -71,18 +93,41 @@ const flags = [
     }
 ];
 
+const countryCodes = [
+    { label: "AD - ANDORRA", value: "AD"},
+    { label: "AE - UNITED ARAB EMIRATES", value: "AE"},
+    { label: "AF - AFGHANISTAN", value: "AF"}
+];
+
+const terminalTypes = [
+    { label: "1 - ATM terminal", value: 1},
+    { label: "8 - E-Pos terminal", value: 8},
+    { label: "6 - Host terminal", value: 6}
+];
+
 class TransactionFilter extends Component {
+
     state = {
         cardNumber: "",
-        dateFrom: "",
-        dateUntil: "",
+        dateAfter: moment().format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS),
+        dateBefore: moment().format(moment.HTML5_FMT.DATETIME_LOCAL_SECONDS),
         flag: "",
+        merchantName: "",
+        terminalId: "",
+        countryCode: "",
+        terminalType: ""
     };
 
     fieldChangeHandler = name => event => {
+
+        console.log(event.target.value);
+
         this.setState({
             [name]: event.target.value
         });
+
+        this.props.onFilterTransactionTable(name, event.target.value);
+
     };
 
     render() {
@@ -108,10 +153,10 @@ class TransactionFilter extends Component {
                     <TextField
                         id={"date-from-field"}
                         label={"C:"}
-                        type={"date"}
-                        value={this.state.dateFrom}
-                        className={classes.dateFromField}
-                        onChange={this.fieldChangeHandler("dateFrom")}
+                        type={"datetime-local"}
+                        value={this.state.dateAfter}
+                        className={classes.dateAfterField}
+                        onChange={this.fieldChangeHandler("dateAfter")}
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position={"start"}>
@@ -123,10 +168,10 @@ class TransactionFilter extends Component {
                     <TextField
                         id={"date-until-field"}
                         label={"По:"}
-                        type={"date"}
-                        value={this.state.dateUntil}
-                        className={classes.dateUntilField}
-                        onChange={this.fieldChangeHandler("dateUntil")}
+                        type={"datetime-local"}
+                        value={this.state.dateBefore}
+                        className={classes.dateBeforeField}
+                        onChange={this.fieldChangeHandler("dateBefore")}
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position={"start"}>
@@ -164,10 +209,77 @@ class TransactionFilter extends Component {
                                 Дополнительные фильтры
                             </Typography>
                         </ExpansionPanelSummary>
-                        <ExpansionPanelDetails>
-                            <Typography>
-                                Какие-то дополнительные фильтры/свое наполнение
-                            </Typography>
+                        <ExpansionPanelDetails className={classes.panelDetails}>
+                            <TextField
+                                id={"merchant-name-field"}
+                                label={"Имя мерчанта:"}
+                                value={this.state.merchantName}
+                                className={classes.merchantNameField}
+                                onChange={this.fieldChangeHandler("merchantName")}
+                                /*InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position={"start"}>
+                                            <Icon color={"primary"} className={classes.iconStyle}>credit_card</Icon>
+                                        </InputAdornment>
+                                    )
+                                }}*/
+                            />
+                            <TextField
+                                id={"terminal-id-field"}
+                                label={"ID терминала:"}
+                                value={this.state.terminalId}
+                                className={classes.terminalIdField}
+                                onChange={this.fieldChangeHandler("terminalId")}
+                                /*InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position={"start"}>
+                                            <Icon color={"primary"} className={classes.iconStyle}>credit_card</Icon>
+                                        </InputAdornment>
+                                    )
+                                }}*/
+                            />
+                            <TextField
+                                id={"country-code-field"}
+                                select
+                                label="Код страны:"
+                                value={this.state.countryCode}
+                                className={classes.countryCodeField}
+                                onChange={this.fieldChangeHandler("countryCode")}
+                                // InputProps={{
+                                //     startAdornment: (
+                                //         <InputAdornment position={"start"}>
+                                //             <Icon color={"primary"} className={classes.iconStyle}>flag</Icon>
+                                //         </InputAdornment>
+                                //     )
+                                // }}
+                            >
+                                {countryCodes.map(option => (
+                                    <MenuItem key={option.value} value={option.value}>
+                                        {option.label}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
+                            <TextField
+                                id={"terminal-type-field"}
+                                select
+                                label="Тип терминала:"
+                                value={this.state.terminalType}
+                                className={classes.terminalTypeField}
+                                onChange={this.fieldChangeHandler("terminalType")}
+                                /*InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position={"start"}>
+                                            <Icon color={"primary"} className={classes.iconStyle}>flag</Icon>
+                                        </InputAdornment>
+                                    )
+                                }}*/
+                            >
+                                {terminalTypes.map(option => (
+                                    <MenuItem key={option.value} value={option.value}>
+                                        {option.label}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
                 </div>
@@ -178,8 +290,8 @@ class TransactionFilter extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFilterTransactionTable: (filter) => dispatch(actions.filterTransactionTable(filter))
+        onFilterTransactionTable: (filter, value) => dispatch(actions.filterTransactionTable(filter, value))
     }
 };
 
-export default withStyles(styles)(TransactionFilter);
+export default connect(null, mapDispatchToProps)(withStyles(styles)(TransactionFilter));

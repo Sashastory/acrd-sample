@@ -71,7 +71,7 @@ class TransactionTable extends Component {
             otv: {width: "5%", flexDirection: "inherit", textAlign: "center"},
             amount: {width: "5%", flexDirection: "inherit", textAlign: "center"},
             currency: {width: "5%", flexDirection: "inherit", textAlign: "center"},
-            operationCode: {width: "10%", flexDirection: "inherit", textAlign: "center"},
+            countryCode: {width: "10%", flexDirection: "inherit", textAlign: "center"},
             rules: {width: "5%", flexDirection: "inherit", textAlign: "center"},
             score: {width: "5%", flexDirection: "inherit", textAlign: "center"},
             city: {width: "10%", flexDirection: "inherit", textAlign: "center"},
@@ -126,8 +126,8 @@ class TransactionTable extends Component {
                                             <TableCell className={styles.currency}>
                                                 <Typography variant={"body1"}>{trans.currency}</Typography>
                                             </TableCell>
-                                            <TableCell className={styles.operationCode}>
-                                                <Typography variant={"body1"}>{trans.operationCode}</Typography>
+                                            <TableCell className={styles.countryCode}>
+                                                <Typography variant={"body1"}>{trans.countryCode}</Typography>
                                             </TableCell>
                                             <TableCell className={styles.rules}>
                                                 <Typography variant={"body1"}>{trans.rules}</Typography>

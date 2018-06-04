@@ -67,10 +67,10 @@ const columnData = [
         label: "Валюта",
     },
     {
-        operationCode: "operationCode",
+        countryCode: "countryCode",
         numeric: false,
         disablePadding: false,
-        label: "Код операции"
+        label: "Код страны"
     },
     {
         rules: "rules",
