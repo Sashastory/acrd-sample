@@ -8,12 +8,12 @@ import {withStyles} from "@material-ui/core/styles";
 
 const styles = theme => ({
     rightIcon: {
-        marginLeft: theme.spacing.unit
+        marginLeft: theme.spacing.unit,
+        color: "#000"
     },
     button: {
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
-        backgroundColor: theme.palette.secondary.main
     }
 });
 
@@ -45,6 +45,7 @@ class ListMenu extends Component {
                     aria-haspopup="true"
                     variant={"raised"}
                     className={classes.button}
+                    color={"secondary"}
                     onClick={this.onClickHandler}
                 >
                     <Typography variant={"button"}>Справочники</Typography>

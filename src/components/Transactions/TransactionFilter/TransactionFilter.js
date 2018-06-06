@@ -145,13 +145,13 @@ class TransactionFilter extends Component {
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position={"start"}>
-                                    <Icon color={"primary"} className={classes.iconStyle}>credit_card</Icon>
+                                    <Icon color={"secondary"} className={classes.iconStyle}>credit_card</Icon>
                                 </InputAdornment>
                             )
                         }}
                     />
                     <TextField
-                        id={"date-from-field"}
+                        id={"date-after-field"}
                         label={"C:"}
                         type={"datetime-local"}
                         value={this.state.dateAfter}
@@ -160,13 +160,13 @@ class TransactionFilter extends Component {
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position={"start"}>
-                                    <Icon color={"primary"} className={classes.iconStyle}>calendar_today</Icon>
+                                    <Icon color={"secondary"} className={classes.iconStyle}>calendar_today</Icon>
                                 </InputAdornment>
                             )
                         }}
                     />
                     <TextField
-                        id={"date-until-field"}
+                        id={"date-before-field"}
                         label={"По:"}
                         type={"datetime-local"}
                         value={this.state.dateBefore}
@@ -175,7 +175,7 @@ class TransactionFilter extends Component {
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position={"start"}>
-                                    <Icon color={"primary"} className={classes.iconStyle}>calendar_today</Icon>
+                                    <Icon color={"secondary"} className={classes.iconStyle}>calendar_today</Icon>
                                 </InputAdornment>
                             )
                         }}
@@ -190,7 +190,7 @@ class TransactionFilter extends Component {
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position={"start"}>
-                                    <Icon color={"primary"} className={classes.iconStyle}>flag</Icon>
+                                    <Icon color={"secondary"} className={classes.iconStyle}>flag</Icon>
                                 </InputAdornment>
                             )
                         }}
@@ -216,13 +216,6 @@ class TransactionFilter extends Component {
                                 value={this.state.merchantName}
                                 className={classes.merchantNameField}
                                 onChange={this.fieldChangeHandler("merchantName")}
-                                /*InputProps={{
-                                    startAdornment: (
-                                        <InputAdornment position={"start"}>
-                                            <Icon color={"primary"} className={classes.iconStyle}>credit_card</Icon>
-                                        </InputAdornment>
-                                    )
-                                }}*/
                             />
                             <TextField
                                 id={"terminal-id-field"}
@@ -230,13 +223,6 @@ class TransactionFilter extends Component {
                                 value={this.state.terminalId}
                                 className={classes.terminalIdField}
                                 onChange={this.fieldChangeHandler("terminalId")}
-                                /*InputProps={{
-                                    startAdornment: (
-                                        <InputAdornment position={"start"}>
-                                            <Icon color={"primary"} className={classes.iconStyle}>credit_card</Icon>
-                                        </InputAdornment>
-                                    )
-                                }}*/
                             />
                             <TextField
                                 id={"country-code-field"}
@@ -245,13 +231,6 @@ class TransactionFilter extends Component {
                                 value={this.state.countryCode}
                                 className={classes.countryCodeField}
                                 onChange={this.fieldChangeHandler("countryCode")}
-                                // InputProps={{
-                                //     startAdornment: (
-                                //         <InputAdornment position={"start"}>
-                                //             <Icon color={"primary"} className={classes.iconStyle}>flag</Icon>
-                                //         </InputAdornment>
-                                //     )
-                                // }}
                             >
                                 {countryCodes.map(option => (
                                     <MenuItem key={option.value} value={option.value}>
@@ -266,13 +245,6 @@ class TransactionFilter extends Component {
                                 value={this.state.terminalType}
                                 className={classes.terminalTypeField}
                                 onChange={this.fieldChangeHandler("terminalType")}
-                                /*InputProps={{
-                                    startAdornment: (
-                                        <InputAdornment position={"start"}>
-                                            <Icon color={"primary"} className={classes.iconStyle}>flag</Icon>
-                                        </InputAdornment>
-                                    )
-                                }}*/
                             >
                                 {terminalTypes.map(option => (
                                     <MenuItem key={option.value} value={option.value}>

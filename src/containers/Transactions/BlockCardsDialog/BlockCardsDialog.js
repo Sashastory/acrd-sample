@@ -12,6 +12,15 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
 import BlockCardsStepper from './BlockDialogStepper/BlockDialogStepper';
+import Slide from '@material-ui/core/Slide';
+
+const styles = theme => ({
+    dialog: {}
+});
+
+function Transition(props) {
+    return <Slide direction={"up"} {...props} />
+}
 
 class BlockCardsDialog extends Component {
 
@@ -38,27 +47,41 @@ class BlockCardsDialog extends Component {
 
     render() {
 
-        const {cards, ...other} = this.props;
-
-        console.log(cards);
+        const {classes, cards, open, onClose} = this.props;
 
         return (
             <Dialog
                 disableBackdropClick
                 disableEscapeKeyDown
-                {...other}
+                TransitionComponent={Transition}
+                open={open}
+                onClose={onClose}
+                className={classes.dialog}
             >
-                <DialogTitle><Typography variant={"headline"}>Добавление карт в черный список</Typography></DialogTitle>
+                <DialogTitle><Typography variant={"headline"}>Добавление карт в черный
+                    список</Typography></DialogTitle>
                 <DialogContent>
                     <BlockCardsStepper cards={cards}/>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={this.saveHandler} color={"primary"}>Сохранить</Button>
-                    <Button onClick={this.cancelHandler} color={"primary"}>Отмена</Button>
+                    <Button
+                        onClick={this.saveHandler}
+                        color={"secondary"}
+                        variant={"raised"}
+                    >
+                        Сохранить
+                    </Button>
+                    <Button
+                        onClick={this.cancelHandler}
+                        color={"default"}
+                        variant={"raised"}
+                    >
+                        Отмена
+                    </Button>
                 </DialogActions>
             </Dialog>
         );
     }
 }
 
-export default BlockCardsDialog;
+export default withStyles(styles)(BlockCardsDialog);

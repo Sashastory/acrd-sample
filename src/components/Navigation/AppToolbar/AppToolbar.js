@@ -23,7 +23,6 @@ const styles = theme => ({
     },
     mainButton: {
         marginRight: theme.spacing.unit * 5,
-        backgroundColor: theme.palette.secondary.main,
     },
     typography: {
         color: "#000"
@@ -42,6 +41,7 @@ const appToolbar = props => {
                         aria-haspopup="false"
                         variant={"raised"}
                         className={classes.mainButton}
+                        color={"secondary"}
                     >
                         <NavigationItem link="/">
                             <Typography variant={"button"} className={classes.typography}>Главная</Typography>
