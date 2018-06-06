@@ -31,7 +31,7 @@ const styles = theme => ({
         overflowX: "auto"
     },
     checkbox: {
-        color: "#000"
+        color: "#000",
     }
 });
 
@@ -53,10 +53,10 @@ class TransactionTable extends Component {
     };
 
     transTableRowClickHandler = (event, trans) => {
-        this.props.onChangeSelectedTransactionAmount(trans.id);
+        this.props.onChangeSelectedTransactionAmount(trans);
     };
 
-    isSelected = id => this.props.selected.indexOf(id) !== -1;
+    isSelected = trans => this.props.selected.indexOf(trans) !== -1;
 
     render() {
 
@@ -95,7 +95,7 @@ class TransactionTable extends Component {
                             {transactions
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map(trans => {
-                                    const isSelected = this.isSelected(trans.id);
+                                    const isSelected = this.isSelected(trans);
                                     return (
                                         <TableRow
                                             hover
@@ -108,7 +108,7 @@ class TransactionTable extends Component {
                                             key={trans.id}
                                             selected={isSelected}
                                         >
-                                            <TableCell padding="checkbox" className={styles.checkbox}>
+                                            <TableCell padding="checkbox">
                                                 <Checkbox checked={isSelected} className={classes.checkbox}/>
                                             </TableCell>
                                             <TableCell className={styles.cardNumber}>
@@ -192,8 +192,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onChangeSelectedTransactionAmount: selectedId =>
-            dispatch(actions.changeSelectedTransactionAmount(selectedId)),
+        onChangeSelectedTransactionAmount: transaction =>
+            dispatch(actions.changeSelectedTransactionAmount(transaction)),
     };
 };
 

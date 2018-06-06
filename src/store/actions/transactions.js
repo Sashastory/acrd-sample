@@ -34,9 +34,9 @@ export const fetchTransactions = () => {
     };
 };
 
-export const changeSelectedTransactionAmount = selectedId => {
+export const changeSelectedTransactionAmount = transaction => {
     return {
-        selectedId: selectedId,
+        transaction: transaction,
         type: actionTypes.CHANGE_SELECTED_TRANSACTION_AMOUNT
     };
 };

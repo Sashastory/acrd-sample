@@ -45,21 +45,19 @@ const styles = theme => ({
 class TransactionTableToolbar extends Component {
 
     state = {
-        blockDialogOpen: "false",
-        addExclDialogOpen: "false",
+        blockDialogOpen: false,
+        addExclDialogOpen: false,
     };
 
     blockDialogCloseHandler = () => {
-        console.log("Block dialog cancel button pressed");
         this.setState({
-            blockDialogOpen: "false"
+            blockDialogOpen: false
         })
     };
 
     blockDialogOpenHandler = () => {
-        console.log("Block dialog open button pressed");
         this.setState({
-            blockDialogOpen: "true"
+            blockDialogOpen: true
         });
     };
 
@@ -74,7 +72,7 @@ class TransactionTableToolbar extends Component {
                 <IconButton disabled={numSelected <= 0} aria-label="Открыть">
                     <LaunchIcon color={"inherit"}/>
                 </IconButton>
-                <IconButton disabled={numSelected <= 0} aria-label="Заблокировать">
+                <IconButton disabled={numSelected <= 0} aria-label="Заблокировать" onClick={this.blockDialogOpenHandler}>
                     <LockIcon color={"inherit"}/>
                 </IconButton>
                 <IconButton disabled={numSelected <= 0} aria-label="Доб исключение">
@@ -150,7 +148,7 @@ class TransactionTableToolbar extends Component {
 
 const mapStateToProps = state => {
     return {
-        selected: state.transactionsR.selected
+        selected: state.transactionsR.selected,
     };
 };
 

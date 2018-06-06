@@ -34,11 +34,11 @@ const fetchTransactionsFail = (state, action) => {
 };
 
 const changeSelectedTransactionAmount = (state, action) => {
-    const selectedIndex = state.selected.indexOf(action.selectedId);
+    const selectedIndex = state.selected.indexOf(action.transaction);
     let newSelected = [];
 
     if (selectedIndex === -1) {
-        newSelected = newSelected.concat(state.selected, action.selectedId);
+        newSelected = newSelected.concat(state.selected, action.transaction);
     } else if (selectedIndex === 0) {
         newSelected = newSelected.concat(state.selected.slice(1));
     } else if (selectedIndex === state.selected.length - 1) {
@@ -74,7 +74,7 @@ const sortTransactionTable = (state, action) => {
 
 const selectAllTransactions = (state, action) => {
     if (action.checked) {
-        return updateObject(state, {selected: state.transactions.map(r => r.id)});
+        return updateObject(state, {selected: state.transactions});
     }
     return updateObject(state, {selected: []});
 };
