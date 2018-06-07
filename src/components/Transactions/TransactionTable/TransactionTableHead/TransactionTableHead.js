@@ -18,10 +18,10 @@ const styles = theme => ({
     },
     tableRow: {},
     tableCell: {
-        width: "4%"
+        width: "4%",
+        color: "#000"
     },
     checkbox: {
-        color: "#000"
     }
 
 });
@@ -136,6 +136,7 @@ class TransactionTableHead extends Component {
                             indeterminate={numSelected > 0 && numSelected < rowCount}
                             checked={numSelected === rowCount}
                             onChange={this.onSelectAllTransactions}
+                            color={"#000"}
                             className={classes.checkbox}
                         />
                     </TableCell>

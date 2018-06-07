@@ -31,7 +31,6 @@ const styles = theme => ({
         overflowX: "auto"
     },
     checkbox: {
-        color: "#000",
     }
 });
 
@@ -109,7 +108,7 @@ class TransactionTable extends Component {
                                             selected={isSelected}
                                         >
                                             <TableCell padding="checkbox">
-                                                <Checkbox checked={isSelected} className={classes.checkbox}/>
+                                                <Checkbox checked={isSelected} color={"#000"}/>
                                             </TableCell>
                                             <TableCell className={styles.cardNumber}>
                                                 <Typography variant={"body1"}>{trans.cardNumber}</Typography>
@@ -182,7 +181,6 @@ class TransactionTable extends Component {
 
 const mapStateToProps = state => {
     return {
-        transactions: state.transactionsR.transactions,
         order: state.transactionsR.order,
         selected: state.transactionsR.selected,
         orderBy: state.transactionsR.orderBy,

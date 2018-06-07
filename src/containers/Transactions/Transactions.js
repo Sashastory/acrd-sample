@@ -13,10 +13,13 @@ class Transactions extends Component {
     }
 
     render() {
+
+        const { transactions } = this.props;
+
         return (
             <div>
                 <TransactionFilter/>
-                <TransactionTable />
+                <TransactionTable transactions={transactions}/>
                 {/*<TransactionTableControls/>*/}
                 {/*<TransactionTabs/>*/}
             </div>

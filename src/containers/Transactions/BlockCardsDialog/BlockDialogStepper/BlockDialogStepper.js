@@ -22,6 +22,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Radio from '@material-ui/core/Radio';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Icon from '@material-ui/core/Icon';
+import StepperActions from '../../../../components/Transactions/BlockCardsDialog/StepperActions/StepperActions';
+import CardList from '../../../../components/Transactions/BlockCardsDialog/CardList/CardList';
+import Duration from '../../../../components/Transactions/BlockCardsDialog/Duration/Duration';
 
 const styles = theme => ({
     root: {},
@@ -51,12 +54,15 @@ const styles = theme => ({
         marginBottom: theme.spacing.unit
     },
     listItemIcon: {
-        color: theme.palette.secondary.main
+        color: theme.palette.primary.main
+    },
+    twoDaysSwitch: {
+        marginLeft: theme.spacing.unit * 3
     },
     dateBeforeField: {
+        marginLeft: theme.spacing.unit
     },
-    dateAfterField: {
-    }
+    dateAfterField: {}
 });
 
 const steps = ['Подтверждение карт', 'Выбор времени действия', 'Выбор правил'];
@@ -72,7 +78,7 @@ class BlockDialogStepper extends Component {
 
     state = {
         activeStep: 0,
-
+        finished: false,
         //TODO: Транзакции целиком или только номера карт? Сейчас это пары номер карты - выбрана или нет
         confirmed: [],
         duration: {
@@ -91,6 +97,10 @@ class BlockDialogStepper extends Component {
     handleNext = () => {
         this.setState({
             activeStep: this.state.activeStep + 1
+        }, () => {
+            if (this.state.activeStep === steps.length) {
+                this.props.handler(true);
+            }
         });
     };
 
@@ -102,16 +112,24 @@ class BlockDialogStepper extends Component {
 
     handleReset = () => {
 
-        //Сброс подтвержденных карт
         const initialConfirmed = [...this.state.confirmed];
         initialConfirmed.map(c => c.checked === true);
 
-        //TODO: Сброс интервала времени
+        const initialDuration = {...this.state.duration};
+        initialDuration.dayAmount = 0;
+        initialDuration.twoDays = false;
+        initialDuration.special.dateAfter = "";
+        initialDuration.special.dateBefore = "";
+
         //TODO: Сброс правил
 
         this.setState({
             activeStep: 0,
-            confirmed: initialConfirmed
+            finished: false,
+            confirmed: initialConfirmed,
+            duration: initialDuration,
+        }, () => {
+            this.props.handler(false);
         })
     };
 
@@ -131,9 +149,7 @@ class BlockDialogStepper extends Component {
 
         const {duration} = this.state;
         const newDuration = {...duration};
-        console.log(`Duration before update ${newDuration.twoDays}`);
         newDuration.twoDays = !duration.twoDays;
-        console.log(`Duration after update ${newDuration.twoDays}`);
 
         this.setState({
             duration: newDuration
@@ -174,45 +190,20 @@ class BlockDialogStepper extends Component {
                         <StepLabel>{steps[0]}</StepLabel>
                         <StepContent>
                             <div className={classes.cardsRoot}>
-                                <div className={classes.listContainer}>
-                                    <List subheader={<ListSubheader>Список карт</ListSubheader>}>
-                                        {confirmed.map(card => (
-                                            <ListItem key={card.cardNumber}>
-                                                <ListItemIcon className={classes.listItemIcon}>
-                                                    <CreditCardIcon/>
-                                                </ListItemIcon>
-                                                <ListItemText primary={card.cardNumber}/>
-                                                <ListItemSecondaryAction>
-                                                    <Switch
-                                                        onChange={() => this.handleToggle(card)}
-                                                        checked={this.state.confirmed
-                                                            .find(c => c.cardNumber === card.cardNumber).checked}
-                                                    />
-                                                </ListItemSecondaryAction>
-                                                <Divider/>
-                                            </ListItem>
-                                        ))}
-                                    </List>
-                                </div>
-                                <div className={classes.actionsContainer}>
-                                    <Button
-                                        variant={"raised"}
-                                        color={"secondary"}
-                                        onClick={this.handleNext}
-                                        className={classes.button}
-                                    >
-                                        {activeStep === steps.length - 1 ?
-                                            <Typography variant={"button"}>Завершить</Typography> :
-                                            <Typography variant={"button"}>Далее</Typography>}
-                                    </Button>
-                                    <Button
-                                        disabled={activeStep === 0}
-                                        onClick={this.handleBack}
-                                        className={classes.button}
-                                    >
-                                        <Typography variant={"button"}>Назад</Typography>
-                                    </Button>
-                                </div>
+                                <CardList
+                                    listContainer={classes.listContainer}
+                                    confirmed={confirmed}
+                                    listItemIcon={classes.listItemIcon}
+                                    onToggle={this.handleToggle}
+                                />
+                                <StepperActions
+                                    actionsContainer={classes.actionsContainer}
+                                    button={classes.button}
+                                    onClickNext={this.handleNext}
+                                    onClickBack={this.handleBack}
+                                    activeStep={activeStep}
+                                    steps={steps}
+                                />
                             </div>
                         </StepContent>
                     </Step>
@@ -220,79 +211,30 @@ class BlockDialogStepper extends Component {
                         <StepLabel>{steps[1]}</StepLabel>
                         <StepContent>
                             <div className={classes.durationRoot}>
-                                <div className={classes.durationContainer}>
-                                    <div className={classes.daysContainer}>
-                                        <TextField
-                                            id={"day-amount-field"}
-                                            label="Кол-во дней:"
-                                            value={this.state.duration.dayAmount}
-                                            onChange={this.handleDayAmountChange}
-                                            disabled={this.state.duration.twoDays}
-                                            InputLabelProps={{
-                                                shrink: true
-                                            }}
-                                        />
-                                        <FormControlLabel control={
-                                            <Switch
-                                                checked={this.state.duration.twoDays === true}
-                                                onChange={this.handleChange}
-                                            />
-                                        } label={"2 дня"}/>
-                                    </div>
-                                    <div className={classes.specialContainer}>
-                                        <TextField
-                                            id={"date-after-field"}
-                                            label={"Специальное, От:"}
-                                            type={"date"}
-                                            disabled={this.state.duration.twoDays}
-                                            value={this.state.dateAfter}
-                                            className={classes.dateAfterField}
-                                            onChange={this.handleDateChange('dateAfter')}
-                                            InputProps={{
-                                                startAdornment: (
-                                                    <InputAdornment position={"start"}>
-                                                        <Icon color={"secondary"} className={classes.iconStyle}>calendar_today</Icon>
-                                                    </InputAdornment>
-                                                )
-                                            }}
-                                        />
-                                        <TextField
-                                            id={"date-until-field"}
-                                            label={"До:"}
-                                            type={"datetime-local"}
-                                            disabled={this.state.duration.twoDays}
-                                            value={this.state.dateBefore}
-                                            className={classes.dateBeforeField}
-                                            onChange={this.handleDateChange('dateBefore')}
-                                            InputProps={{
-                                                startAdornment: (
-                                                    <InputAdornment position={"start"}>
-                                                        <Icon color={"secondary"} className={classes.iconStyle}>calendar_today</Icon>
-                                                    </InputAdornment>
-                                                )
-                                            }}
-                                        />
-                                    </div>
-                                </div>
-                                <div className={classes.actionsContainer}>
-                                    <Button
-                                        variant={"raised"}
-                                        color={"secondary"}
-                                        onClick={this.handleNext}
-                                        className={classes.button}
-                                    >
-                                        {activeStep === steps.length - 1 ?
-                                            <Typography variant={"button"}>Завершить</Typography> :
-                                            <Typography variant={"button"}>Далее</Typography>}
-                                    </Button>
-                                    <Button
-                                        disabled={activeStep === 0}
-                                        onClick={this.handleBack}
-                                        className={classes.button}
-                                    >
-                                        <Typography variant={"button"}>Назад</Typography>
-                                    </Button>
-                                </div>
+                                <Duration
+                                    durationContainer={classes.durationContainer}
+                                    daysContainer={classes.daysContainer}
+                                    specialContainer={classes.specialContainer}
+                                    dayAmount={duration.dayAmount}
+                                    onChangeDayAmount={this.handleDayAmountChange}
+                                    twoDays={duration.twoDays}
+                                    onChange={this.handleChange}
+                                    twoDaysSwitch={classes.twoDaysSwitch}
+                                    iconStyle={classes.iconStyle}
+                                    dateAfter={duration.special.dateAfter}
+                                    dateAfterField={classes.dateAfterField}
+                                    dateBefore={duration.special.dateBefore}
+                                    dateBeforeField={classes.dateBeforeField}
+                                    onDateChange={this.handleDateChange}
+                                />
+                                <StepperActions
+                                    actionsContainer={classes.actionsContainer}
+                                    button={classes.button}
+                                    onClickNext={this.handleNext}
+                                    onClickBack={this.handleBack}
+                                    activeStep={activeStep}
+                                    steps={steps}
+                                />
                             </div>
                         </StepContent>
                     </Step>
@@ -303,25 +245,14 @@ class BlockDialogStepper extends Component {
                                 <div className={classes.rulesContainer}>
                                     <Typography variant={"headline"}>Сюда подгружаются правила</Typography>
                                 </div>
-                                <div className={classes.actionsContainer}>
-                                    <Button
-                                        variant={"raised"}
-                                        color={"secondary"}
-                                        onClick={this.handleNext}
-                                        className={classes.button}
-                                    >
-                                        {activeStep === steps.length - 1 ?
-                                            <Typography variant={"button"}>Завершить</Typography> :
-                                            <Typography variant={"button"}>Далее</Typography>}
-                                    </Button>
-                                    <Button
-                                        disabled={activeStep === 0}
-                                        onClick={this.handleBack}
-                                        className={classes.button}
-                                    >
-                                        <Typography variant={"button"}>Назад</Typography>
-                                    </Button>
-                                </div>
+                                <StepperActions
+                                    actionsContainer={classes.actionsContainer}
+                                    button={classes.button}
+                                    onClickNext={this.handleNext}
+                                    onClickBack={this.handleBack}
+                                    activeStep={activeStep}
+                                    steps={steps}
+                                />
                             </div>
                         </StepContent>
                     </Step>
@@ -329,7 +260,11 @@ class BlockDialogStepper extends Component {
                 {activeStep === steps.length && (
                     <Paper square elevation={0} className={classes.resetContainer}>
                         <Typography>Все шаги успешно выполнены!</Typography>
-                        <Button onClick={this.handleReset} className={classes.button}>
+                        <Button
+                            variant={"raised"}
+                            onClick={this.handleReset}
+                            className={classes.button}
+                        >
                             <Typography variant={"button"}>Сбросить</Typography>
                         </Button>
                     </Paper>

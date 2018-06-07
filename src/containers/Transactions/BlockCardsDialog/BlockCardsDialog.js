@@ -24,13 +24,8 @@ function Transition(props) {
 
 class BlockCardsDialog extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state.cards = this.props.cards;
-    }
-
     state = {
-        cards: []
+        stepsComplete: false
     };
 
 
@@ -43,6 +38,12 @@ class BlockCardsDialog extends Component {
 
     cancelHandler = () => {
         this.props.onClose();
+    };
+
+    stepsCompleteHandler = (value) => {
+        this.setState({
+            stepsComplete: value
+        });
     };
 
     render() {
@@ -61,13 +62,17 @@ class BlockCardsDialog extends Component {
                 <DialogTitle><Typography variant={"headline"}>Добавление карт в черный
                     список</Typography></DialogTitle>
                 <DialogContent>
-                    <BlockCardsStepper cards={cards}/>
+                    <BlockCardsStepper
+                        cards={cards}
+                        handler={this.stepsCompleteHandler}
+                    />
                 </DialogContent>
                 <DialogActions>
                     <Button
                         onClick={this.saveHandler}
                         color={"secondary"}
                         variant={"raised"}
+                        disabled={!this.state.stepsComplete}
                     >
                         Сохранить
                     </Button>

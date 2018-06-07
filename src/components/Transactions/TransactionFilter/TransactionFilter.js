@@ -145,7 +145,7 @@ class TransactionFilter extends Component {
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position={"start"}>
-                                    <Icon color={"secondary"} className={classes.iconStyle}>credit_card</Icon>
+                                    <Icon color={"primary"} className={classes.iconStyle}>credit_card</Icon>
                                 </InputAdornment>
                             )
                         }}
@@ -160,7 +160,7 @@ class TransactionFilter extends Component {
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position={"start"}>
-                                    <Icon color={"secondary"} className={classes.iconStyle}>calendar_today</Icon>
+                                    <Icon color={"primary"} className={classes.iconStyle}>calendar_today</Icon>
                                 </InputAdornment>
                             )
                         }}
@@ -175,7 +175,7 @@ class TransactionFilter extends Component {
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position={"start"}>
-                                    <Icon color={"secondary"} className={classes.iconStyle}>calendar_today</Icon>
+                                    <Icon color={"primary"} className={classes.iconStyle}>calendar_today</Icon>
                                 </InputAdornment>
                             )
                         }}
@@ -190,7 +190,7 @@ class TransactionFilter extends Component {
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position={"start"}>
-                                    <Icon color={"secondary"} className={classes.iconStyle}>flag</Icon>
+                                    <Icon color={"primary"} className={classes.iconStyle}>flag</Icon>
                                 </InputAdornment>
                             )
                         }}
