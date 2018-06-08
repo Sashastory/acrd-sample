@@ -59,8 +59,11 @@ class BlockCardsDialog extends Component {
                 onClose={onClose}
                 className={classes.dialog}
             >
-                <DialogTitle><Typography variant={"headline"}>Добавление карт в черный
-                    список</Typography></DialogTitle>
+                <DialogTitle>
+                    <Typography variant={"headline"}>
+                        Добавление карт в черный список
+                    </Typography>
+                </DialogTitle>
                 <DialogContent>
                     <BlockCardsStepper
                         cards={cards}

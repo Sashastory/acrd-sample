@@ -11,6 +11,7 @@ import WorkIcon from '@material-ui/icons/Work';
 import {connect} from "react-redux";
 import Button from "@material-ui/core/es/Button/Button";
 import BlockCardsDialog from '../../../../containers/Transactions/BlockCardsDialog/BlockCardsDialog';
+import AddExclDialog from '../../../../containers/Transactions/AddExclDialog/AddExclDialog';
 
 
 const styles = theme => ({
@@ -61,6 +62,18 @@ class TransactionTableToolbar extends Component {
         });
     };
 
+    addExclDialogCloseHandler = () => {
+        this.setState({
+            addExclDialogOpen: false
+        })
+    };
+
+    addExclDialogOpenHandler = () => {
+        this.setState({
+            addExclDialogOpen: true
+        })
+    };
+
     render() {
 
         const {onOpenClick, onBlockClick, onAddExclClick, selected, classes} = this.props;
@@ -72,10 +85,18 @@ class TransactionTableToolbar extends Component {
                 <IconButton disabled={numSelected <= 0} aria-label="Открыть">
                     <LaunchIcon color={"inherit"}/>
                 </IconButton>
-                <IconButton disabled={numSelected <= 0} aria-label="Заблокировать" onClick={this.blockDialogOpenHandler}>
+                <IconButton
+                    disabled={numSelected <= 0}
+                    aria-label="Заблокировать"
+                    onClick={this.blockDialogOpenHandler}
+                >
                     <LockIcon color={"inherit"}/>
                 </IconButton>
-                <IconButton disabled={numSelected <= 0} aria-label="Доб исключение">
+                <IconButton
+                    disabled={numSelected <= 0}
+                    aria-label="Доб исключение"
+                    onClick={this.addExclDialogOpenHandler}
+                >
                     <WorkIcon color={"inherit"}/>
                 </IconButton>
             </React.Fragment>
@@ -140,6 +161,11 @@ class TransactionTableToolbar extends Component {
                     cards={selected.map(trans => trans.cardNumber)}
                     open={this.state.blockDialogOpen}
                     onClose={this.blockDialogCloseHandler}
+                />
+                <AddExclDialog
+                    transactions={selected}
+                    open={this.state.addExclDialogOpen}
+                    onClose={this.addExclDialogCloseHandler}
                 />
             </div>
         );
