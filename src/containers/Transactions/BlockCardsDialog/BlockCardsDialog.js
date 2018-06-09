@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import {withStyles} from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -15,7 +10,7 @@ import BlockCardsStepper from './BlockDialogStepper/BlockDialogStepper';
 import Slide from '@material-ui/core/Slide';
 
 const styles = theme => ({
-    dialog: {}
+    dialog: {},
 });
 
 function Transition(props) {
